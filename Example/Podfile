@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Segment-Branch_Example', :exclusive => true do
+  pod "Segment-Branch", :path => "../"
+end
+
+target 'Segment-Branch_Tests', :exclusive => true do
+  pod "Segment-Branch", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end
