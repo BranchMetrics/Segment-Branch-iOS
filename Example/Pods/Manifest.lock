@@ -1,0 +1,20 @@
+PODS:
+  - Expecta (1.0.5)
+  - Segment-Branch (0.1.0)
+  - Specta (1.0.5)
+
+DEPENDENCIES:
+  - Expecta
+  - Segment-Branch (from `../`)
+  - Specta
+
+EXTERNAL SOURCES:
+  Segment-Branch:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
+  Segment-Branch: e17cf71970729dfbf405df3467644d1c422f1015
+  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+
+COCOAPODS: 0.39.0
