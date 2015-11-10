@@ -22,7 +22,7 @@ pod "Segment-Branch"
 
 ## Author
 
-Derrick Staten, statenderrick@gmail.com
+Branch Metrics, support@branchmetrics.io
 
 ## License
 
