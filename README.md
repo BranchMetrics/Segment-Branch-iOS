@@ -1,6 +1,5 @@
 # Segment-Branch
 
-[![CI Status](http://img.shields.io/travis/Derrick Staten/Segment-Branch.svg?style=flat)](https://travis-ci.org/Derrick Staten/Segment-Branch)
 [![Version](https://img.shields.io/cocoapods/v/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
 [![License](https://img.shields.io/cocoapods/l/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
 [![Platform](https://img.shields.io/cocoapods/p/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
