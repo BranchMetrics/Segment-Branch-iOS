@@ -7,12 +7,37 @@
 //
 
 #import "BNCAppDelegate.h"
+#import <Analytics/SEGAnalytics.h>
+
+/**
+ * Can uncomment the line below after running `pod install`
+ *
+ * #import "BNCBranchIntegrationFactory.h"
+ */
+
 
 @implementation BNCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:@"MlTmISmburwl2nN9o3NFpGfElujcfb0q"];
+    
+    /**
+     * Can uncomment the line below after running `pod install`
+     *
+     * [configuration use:[BNCBranchIntegrationFactory instance]];
+     */
+    
+    [SEGAnalytics setupWithConfiguration:configuration];
+    [SEGAnalytics debug:YES];
+    
+    [[SEGAnalytics sharedAnalytics] track:@"Hello World"];
+    [[SEGAnalytics sharedAnalytics] group:@"segment"];
+    [[SEGAnalytics sharedAnalytics] screen:@"home"];
+    [[SEGAnalytics sharedAnalytics] identify:@"prateek"];
+    [[SEGAnalytics sharedAnalytics] alias:@"f2prateek"];
+    [[SEGAnalytics sharedAnalytics] flush];
+    
     return YES;
 }
 
