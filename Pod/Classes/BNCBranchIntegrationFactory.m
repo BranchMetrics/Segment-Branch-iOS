@@ -26,7 +26,7 @@
 
 - (NSString *)key
 {
-    return @"Branch";
+    return @"Branch Metrics";
 }
 
 @end
