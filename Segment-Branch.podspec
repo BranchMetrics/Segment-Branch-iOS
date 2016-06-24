@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Segment-Branch"
-  s.version          = "0.1.01"
+  s.version          = "0.1.1"
   s.summary          = "Branch Integration for Analytics for iOS."
 
   s.description      = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/BranchMetrics/Segment-Branch-iOS"
   s.license          = 'MIT'
-  s.author           = { "Branch Metrics" => "support@branchmetrics.io" }
+  s.author           = { "Branch Metrics" => "support@branch.io" }
   s.source           = { :git => "https://github.com/BranchMetrics/Segment-Branch-iOS.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/branchmetrics'
 
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*'
 
-  s.dependency 'Analytics', '~> 3.0.1-alpha'
+  s.dependency 'Analytics'
   s.dependency 'Branch'
 end
