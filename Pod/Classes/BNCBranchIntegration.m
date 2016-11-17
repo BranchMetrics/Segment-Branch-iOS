@@ -56,4 +56,20 @@
     SEGLog(@"[[Branch getInstance] logout]");
 }
 
+- (void)receivedRemoteNotification:(NSDictionary *)userInfo {
+    [[Branch getInstance] handlePushNotification:userInfo];
+    SEGLog(@"[[Branch getInstance] handlePushNotification:%@]", userInfo);
+}
+
+
+- (void)continueUserActivity:(NSUserActivity *)userActivity {
+    [[Branch getInstance] continueUserActivity:userActivity];
+    SEGLog(@"[[Branch getInstance] continueUserActivity:%@]", userActivity);
+}
+
+- (void)openURL:(NSURL *)url options:(NSDictionary *)options {
+    [[Branch getInstance] handleDeepLink:url];
+    SEGLog(@"[[Branch getInstance] handleDeepLink:%@]", url);
+}
+
 @end
