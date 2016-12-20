@@ -12,11 +12,31 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-Segment-Branch is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To install the Segment-Branch integration, simply add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
 ```ruby
 pod "Segment-Branch"
+```
+
+## Usage
+
+After adding the dependency, you must register the integration with our SDK.  To do this, import the Branch integration in your `AppDelegate`:
+
+```
+#import <Segment-Branch/BNCBranchIntegrationFactory.h>
+
+```
+
+And add the following lines:
+
+```
+NSString *const SEGMENT_WRITE_KEY = @" ... ";
+SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:SEGMENT_WRITE_KEY];
+
+[config use:[BNCBranchIntegrationFactory instance]];
+
+[SEGAnalytics setupWithConfiguration:config];
+
 ```
 
 ## Author
