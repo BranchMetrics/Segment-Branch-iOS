@@ -6,7 +6,7 @@
 //  Copyright © 2015 Branch Metrics. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 @interface BranchLinkProperties : NSObject
 
@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *alias;
 @property (nonatomic, strong) NSString *channel;
 @property (nonatomic, strong) NSString *stage;
+@property (nonatomic, strong) NSString *campaign;
 @property (nonatomic) NSUInteger matchDuration;
 @property (nonatomic, strong) NSDictionary *controlParams;
 

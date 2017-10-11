@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Branch Metrics. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 typedef NS_ENUM(NSUInteger, BranchLinkType) {
     BranchLinkTypeUnlimitedUse = 0,
@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, BranchLinkType) {
 - (void)setupChannel:(NSString *)channel;
 - (void)setupFeature:(NSString *)feature;
 - (void)setupStage:(NSString *)stage;
+- (void)setupCampaign:(NSString *)campaign;
 - (void)setupParams:(NSDictionary *)params;
 - (void)setupMatchDuration:(NSUInteger)duration;
 - (void)setupIgnoreUAString:(NSString *)ignoreUAString;

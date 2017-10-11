@@ -1,5 +1,10 @@
 Branch-Segment-iOS change log
 
+- v0.1.3
+  * Updated the Branch SDK to version 0.19.5.
+  * Updated the example for Xcode 9.
+  * Added documentation and a README.md file to the example.
+
 - v0.1.2
   * Conform to more Segment handlers
   * `receivedRemoteNotification:` is now handled.

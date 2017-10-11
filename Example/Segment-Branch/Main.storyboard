@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,14 +19,68 @@
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Segment-Branch Example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7i1-d2-OFM">
+                                <rect key="frame" x="60" y="60" width="200" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMX-CI-M2X">
+                                <rect key="frame" x="20" y="111" width="280" height="124.5"/>
+                                <string key="text">This example app simply logs shared analytics events when it's opened.
+
+See the source code for implementation details.
+
+
+Tracked Items:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf1-KO-PPR">
+                                <rect key="frame" x="105.5" y="245.5" width="49.5" height="78"/>
+                                <string key="text">Track:
+Group:
+Screen:
+Identify:
+Alias:</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALw-M2-2C3">
+                                <rect key="frame" x="165" y="245.5" width="70" height="78"/>
+                                <string key="text">Hello World
+segment
+home
+prateek
+f2prateek</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ALw-M2-2C3" firstAttribute="leading" secondItem="Lf1-KO-PPR" secondAttribute="trailing" constant="10" id="RDq-bc-7bH"/>
+                            <constraint firstItem="7i1-d2-OFM" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="40" id="T40-VT-0Qw"/>
+                            <constraint firstAttribute="trailing" secondItem="gMX-CI-M2X" secondAttribute="trailing" constant="20" id="YCj-ay-PM2"/>
+                            <constraint firstItem="ALw-M2-2C3" firstAttribute="top" secondItem="Lf1-KO-PPR" secondAttribute="top" id="bNb-Jc-KNO"/>
+                            <constraint firstItem="gMX-CI-M2X" firstAttribute="top" secondItem="7i1-d2-OFM" secondAttribute="bottom" constant="30" id="c2t-2v-eIR"/>
+                            <constraint firstItem="gMX-CI-M2X" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="c71-3I-MWg"/>
+                            <constraint firstItem="Lf1-KO-PPR" firstAttribute="top" secondItem="gMX-CI-M2X" secondAttribute="bottom" constant="10" id="fm4-cH-efp"/>
+                            <constraint firstItem="gMX-CI-M2X" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="tdL-GH-wvc"/>
+                            <constraint firstItem="7i1-d2-OFM" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="tsK-5e-nDV"/>
+                            <constraint firstItem="Lf1-KO-PPR" firstAttribute="trailing" secondItem="TpU-gO-2f1" secondAttribute="centerX" constant="-5" id="xh2-fE-xi0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="303.75" y="432.04225352112678"/>
         </scene>
     </scenes>
 </document>

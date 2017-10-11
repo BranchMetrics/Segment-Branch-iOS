@@ -8,26 +8,18 @@
 
 #import "BNCAppDelegate.h"
 #import <Analytics/SEGAnalytics.h>
-
-/**
- * Can uncomment the line below after running `pod install`
- *
- * #import "BNCBranchIntegrationFactory.h"
- */
-
+#import "BNCBranchIntegrationFactory.h" // Import this file.
 
 @implementation BNCAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:@"MlTmISmburwl2nN9o3NFpGfElujcfb0q"];
+    SEGAnalyticsConfiguration *configuration =
+        [SEGAnalyticsConfiguration configurationWithWriteKey:@"MlTmISmburwl2nN9o3NFpGfElujcfb0q"];
     
-    /**
-     * Can uncomment the line below after running `pod install`
-     *
-     * [configuration use:[BNCBranchIntegrationFactory instance]];
-     */
-    
+    // Add the Branch integration:
+    [configuration use:[BNCBranchIntegrationFactory instance]];
+
     [SEGAnalytics setupWithConfiguration:configuration];
     [SEGAnalytics debug:YES];
     
