@@ -1,5 +1,8 @@
 Branch-Segment-iOS change log
 
+- v0.1.5
+  * Fix release script.
+
 - v0.1.4
   * Updated the Branch SDK to version 0.20.2.
 

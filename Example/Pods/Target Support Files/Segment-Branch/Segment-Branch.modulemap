@@ -1,0 +1,6 @@
+framework module Segment_Branch {
+  umbrella header "Segment-Branch-umbrella.h"
+
+  export *
+  module * { export * }
+}
