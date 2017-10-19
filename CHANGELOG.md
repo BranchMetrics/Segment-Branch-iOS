@@ -1,5 +1,8 @@
 Branch-Segment-iOS change log
 
+- v0.1.4
+  * Updated the Branch SDK to version 0.20.2.
+
 - v0.1.3
   * Updated the Branch SDK to version 0.19.5.
   * Updated the example for Xcode 9.
