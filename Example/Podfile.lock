@@ -1,10 +1,10 @@
 PODS:
   - Analytics (3.6.7)
-  - Branch (0.21.9):
-    - Branch/Core (= 0.21.9)
-  - Branch/Core (0.21.9)
+  - Branch (0.21.11):
+    - Branch/Core (= 0.21.11)
+  - Branch/Core (0.21.11)
   - Expecta (1.0.6)
-  - Segment-Branch (0.1.6):
+  - Segment-Branch (0.1.7):
     - Analytics
     - Branch
   - Specta (1.0.7)
@@ -20,9 +20,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Analytics: 2c09a50e3478a3a7ced08a22d00c43ba6f7011e6
-  Branch: 74cf32eb47dd0ff7cc70129a7bc7098b931eb5f9
+  Branch: f7dda659d380d6c16b47adaefda8f9361718fa6c
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Segment-Branch: 57d41a0080167f04e20ca3fbbe3f1d837c2aa06a
+  Segment-Branch: e0c81397d2b11e42cdad70a0c2004d111798be06
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
 
 PODFILE CHECKSUM: c0a9bab58e95f8c81cf87f1e437133d0bf166b0f
