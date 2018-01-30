@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
             didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
-        // Initialize our data:
+        // Initialize our app data source:
         AppData.shared.initialize()
 
         // Initialize Segment analytics:

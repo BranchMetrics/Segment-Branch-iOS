@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D193B4C1F85418200228824 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D193B4B1F85418200228824 /* AppData.swift */; };
-		4D193B4F1F858D7B00228824 /* UIViewController+BareBones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D193B4E1F858D7B00228824 /* UIViewController+BareBones.swift */; };
+		4D193B4F1F858D7B00228824 /* UIViewController+Fortune.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D193B4E1F858D7B00228824 /* UIViewController+Fortune.swift */; };
 		4D193B511F85975400228824 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D193B501F85975400228824 /* AdSupport.framework */; };
 		4D193B531F85977B00228824 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D193B521F85977B00228824 /* SafariServices.framework */; };
 		4D193B551F8597A600228824 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D193B541F8597A600228824 /* CoreSpotlight.framework */; };
@@ -41,7 +41,7 @@
 /* Begin PBXFileReference section */
 		4D193B4B1F85418200228824 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		4D193B4D1F85801E00228824 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4D193B4E1F858D7B00228824 /* UIViewController+BareBones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+BareBones.swift"; sourceTree = "<group>"; };
+		4D193B4E1F858D7B00228824 /* UIViewController+Fortune.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Fortune.swift"; sourceTree = "<group>"; };
 		4D193B501F85975400228824 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		4D193B521F85977B00228824 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		4D193B541F8597A600228824 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
@@ -111,7 +111,7 @@
 				4D8B77621F8442D100EFD3FF /* Main.storyboard */,
 				4D8B77601F8442D100EFD3FF /* MainViewController.swift */,
 				4DFA9A561F9AC041003EDD47 /* MessageViewController.swift */,
-				4D193B4E1F858D7B00228824 /* UIViewController+BareBones.swift */,
+				4D193B4E1F858D7B00228824 /* UIViewController+Fortune.swift */,
 				4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */,
 				4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */,
 			);
@@ -279,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D193B4F1F858D7B00228824 /* UIViewController+BareBones.swift in Sources */,
+				4D193B4F1F858D7B00228824 /* UIViewController+Fortune.swift in Sources */,
 				4D8B77751F8462C200EFD3FF /* WaitingViewController.swift in Sources */,
 				4DFA9A571F9AC041003EDD47 /* MessageViewController.swift in Sources */,
 				4D193B4C1F85418200228824 /* AppData.swift in Sources */,

@@ -1,3 +1,11 @@
+//
+//  BNCBranchIntegration.m
+//  Segment-Branch Integration
+//
+//  Created by Edward Smith on 1/29/18.
+//  Copyright © 2018 Branch. All rights reserved.
+//
+
 #import "BNCBranchIntegration.h"
 #import <Branch/Branch.h>
 #import <Analytics/SEGAnalyticsUtils.h>

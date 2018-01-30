@@ -356,7 +356,7 @@ static NSString* const kUTTypeGeneric = @"public.content";
                expirationDate:(NSDate *)expirationDate
                      callback:(callbackWithUrl)callback
             spotlightCallback:(callbackWithUrlAndSpotlightIdentifier)spotlightCallback {
-    
+
     BNCSpotlightService* spotlightService = [[BNCSpotlightService alloc] init];
     
     BranchUniversalObject *universalObject = [[BranchUniversalObject alloc] initWithTitle:title];
