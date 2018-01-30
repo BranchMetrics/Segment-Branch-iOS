@@ -3,6 +3,6 @@
 
 @interface BNCBranchIntegrationFactory : NSObject<SEGIntegrationFactory>
 
-+ (id)instance;
++ (NSObject<SEGIntegrationFactory>*_Nonnull)instance;
 
 @end
