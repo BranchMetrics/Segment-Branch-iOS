@@ -12,54 +12,48 @@
 
 @implementation BNCBranchIntegration
 
-- (instancetype)initWithSettings:(NSDictionary *)settings
-{
+- (instancetype)initWithSettings:(NSDictionary *)settings {
     if (self = [super init]) {
-        self.settings = settings;
+        self.settings = settings ?: @{};
         NSString *branchKey = [self.settings objectForKey:@"branch_key"];
         [Branch getInstance:branchKey];
     }
     return self;
 }
 
-- (void)identify:(SEGIdentifyPayload *)payload
-{
+- (void)identify:(SEGIdentifyPayload *)payload {
     if (payload.userId != nil && [payload.userId length] != 0) {
         [[Branch getInstance] setIdentity:payload.userId];
         SEGLog(@"[[Branch getInstance] setIdentity:%@]", payload.userId);
     }
 }
 
-- (void)track:(SEGTrackPayload *)payload
-{
+- (void)track:(SEGTrackPayload *)payload {
     [[Branch getInstance] userCompletedAction:payload.event withState:payload.properties];
     SEGLog(@"[[Branch getInstance] userCompletedAction:%@ withState:%@]", payload.event, payload.properties);
 }
 
-#define VIEWED_SCREEN_EVENT_PREFIX @"viewed_screen_"
-- (void)screen:(SEGScreenPayload *)payload
-{
-    if (payload.name) {
+- (void)screen:(SEGScreenPayload *)payload {
+    if (payload.name.length) {
         NSMutableDictionary *state = [NSMutableDictionary dictionary];
         [state addEntriesFromDictionary:payload.properties];
         if (payload.category) {
             [state setObject:payload.category forKey:@"category"];
         }
-        [[Branch getInstance] userCompletedAction:[NSString stringWithFormat:@"%@%@", VIEWED_SCREEN_EVENT_PREFIX, payload.name] withState:state];
-        SEGLog(@"[[Branch getInstance] userCompletedAction:%@ withState:%@]", [NSString stringWithFormat:@"%@%@", VIEWED_SCREEN_EVENT_PREFIX, payload.name], payload.properties);
+        NSString *actionName = [NSString stringWithFormat:@"viewed_screen_%@", payload.name];
+        [[Branch getInstance] userCompletedAction:actionName withState:state];
+        SEGLog(@"[[Branch getInstance] userCompletedAction:%@ withState:%@]", actionName, payload.properties);
     }
 }
 
-- (void)alias:(SEGAliasPayload *)payload
-{
-    if (payload.theNewId) {
+- (void)alias:(SEGAliasPayload *)payload {
+    if (payload.theNewId.length) {
         [[Branch getInstance] setIdentity:payload.theNewId];
         SEGLog(@"[[Branch getInstance] setIdentity:%@]", payload.theNewId);
     }
 }
 
-- (void)reset
-{
+- (void)reset {
     [[Branch getInstance] logout];
     SEGLog(@"[[Branch getInstance] logout]");
 }

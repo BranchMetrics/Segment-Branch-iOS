@@ -76,7 +76,7 @@ Links Created:</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="About..."/>
                                 <connections>
-                                    <segue destination="2T5-xY-MDo" kind="show" id="4sq-Hz-Tvd"/>
+                                    <segue destination="2T5-xY-MDo" kind="presentation" id="4sq-Hz-Tvd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,13 +113,13 @@ Links Created:</string>
         <!--About-->
         <scene sceneID="FdR-Pn-SOM">
             <objects>
-                <viewController id="2T5-xY-MDo" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="currentContext" id="2T5-xY-MDo" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bF8-Yl-Ysq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHO-mH-BmI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gFa-nQ-XbO" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="750.5"/>
@@ -213,7 +213,11 @@ The example code shows:
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5lS-KE-TTd"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="done" systemItem="done" id="jae-lZ-a6r"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="About" id="asu-XO-kjz"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXE-id-pK6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
