@@ -8,11 +8,11 @@ The example code shows:
 
 • How to use the Segment-Branch SDK integration in a simple Swift 4 application.
 
-• How events are tracked in Segment and Branch.
-
 • How to create and share Branch links in your app.
 
 • How to create a QR code from a Branch link.
+
+• How events are tracked in Segment and Branch.
 
 
 ## Building & Running the Code

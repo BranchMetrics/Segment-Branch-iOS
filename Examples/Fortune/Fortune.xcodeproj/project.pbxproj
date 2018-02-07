@@ -13,15 +13,19 @@
 		4D193B531F85977B00228824 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D193B521F85977B00228824 /* SafariServices.framework */; };
 		4D193B551F8597A600228824 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D193B541F8597A600228824 /* CoreSpotlight.framework */; };
 		4D8B775F1F8442D100EFD3FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B775E1F8442D100EFD3FF /* AppDelegate.swift */; };
-		4D8B77611F8442D100EFD3FF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B77601F8442D100EFD3FF /* MainViewController.swift */; };
-		4D8B77641F8442D100EFD3FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77621F8442D100EFD3FF /* Main.storyboard */; };
+		4D8B77641F8442D100EFD3FF /* Fortune.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77621F8442D100EFD3FF /* Fortune.storyboard */; };
 		4D8B77661F8442D100EFD3FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77651F8442D100EFD3FF /* Assets.xcassets */; };
 		4D8B77691F8442D100EFD3FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77671F8442D100EFD3FF /* LaunchScreen.storyboard */; };
 		4D8B77711F844DD900EFD3FF /* FortuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B77701F844DD900EFD3FF /* FortuneViewController.swift */; };
 		4D8B77741F8462C200EFD3FF /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */; };
 		4D8B77751F8462C200EFD3FF /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */; };
 		4DBC12491F9980F500932CA5 /* Fortunes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DBC12481F9980F500932CA5 /* Fortunes.txt */; };
-		4DFA9A571F9AC041003EDD47 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA9A561F9AC041003EDD47 /* MessageViewController.swift */; };
+		4DFA9A571F9AC041003EDD47 /* FortuneMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA9A561F9AC041003EDD47 /* FortuneMessageViewController.swift */; };
+		4DFDD08F20291488009ECBAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFDD08E20291488009ECBAD /* Main.storyboard */; };
+		4DFDD09120291CBE009ECBAD /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFDD09020291CBE009ECBAD /* Event.storyboard */; };
+		4DFDD09320291FB4009ECBAD /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDD09220291FB4009ECBAD /* EventViewController.swift */; };
+		4DFDD09520292443009ECBAD /* ArrayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DFDD09420292443009ECBAD /* ArrayPickerView.swift */; };
+		4DFDD097202A5AFD009ECBAD /* Events.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DFDD096202A5AFD009ECBAD /* Events.json */; };
 		F894971376CF492A78049A61 /* Pods_Fortune.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB3C167ABDA2BEF39A727D83 /* Pods_Fortune.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +51,7 @@
 		4D193B541F8597A600228824 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		4D8B775B1F8442D100EFD3FF /* Fortune.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fortune.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8B775E1F8442D100EFD3FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D8B77601F8442D100EFD3FF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		4D8B77631F8442D100EFD3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4D8B77631F8442D100EFD3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Fortune.storyboard; sourceTree = "<group>"; };
 		4D8B77651F8442D100EFD3FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D8B77681F8442D100EFD3FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D8B776A1F8442D100EFD3FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,7 +60,12 @@
 		4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
 		4DA904981F85A0CC00892A23 /* Fortune.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fortune.entitlements; sourceTree = "<group>"; };
 		4DBC12481F9980F500932CA5 /* Fortunes.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fortunes.txt; sourceTree = "<group>"; };
-		4DFA9A561F9AC041003EDD47 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		4DFA9A561F9AC041003EDD47 /* FortuneMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneMessageViewController.swift; sourceTree = "<group>"; };
+		4DFDD08E20291488009ECBAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4DFDD09020291CBE009ECBAD /* Event.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		4DFDD09220291FB4009ECBAD /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		4DFDD09420292443009ECBAD /* ArrayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPickerView.swift; sourceTree = "<group>"; };
+		4DFDD096202A5AFD009ECBAD /* Events.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Events.json; sourceTree = "<group>"; };
 		AC82B3C46524DFE4413D237A /* Pods-Fortune.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fortune.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fortune/Pods-Fortune.release.xcconfig"; sourceTree = "<group>"; };
 		BB3C167ABDA2BEF39A727D83 /* Pods_Fortune.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fortune.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1B4B16E0C1F91754DFDA87 /* Pods-Fortune.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fortune.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fortune/Pods-Fortune.debug.xcconfig"; sourceTree = "<group>"; };
@@ -102,15 +110,19 @@
 			children = (
 				4D193B4B1F85418200228824 /* AppData.swift */,
 				4D8B775E1F8442D100EFD3FF /* AppDelegate.swift */,
+				4DFDD09420292443009ECBAD /* ArrayPickerView.swift */,
 				4D8B77651F8442D100EFD3FF /* Assets.xcassets */,
+				4DFDD09020291CBE009ECBAD /* Event.storyboard */,
+				4DFDD096202A5AFD009ECBAD /* Events.json */,
+				4DFDD09220291FB4009ECBAD /* EventViewController.swift */,
 				4DA904981F85A0CC00892A23 /* Fortune.entitlements */,
+				4D8B77621F8442D100EFD3FF /* Fortune.storyboard */,
+				4DFA9A561F9AC041003EDD47 /* FortuneMessageViewController.swift */,
 				4DBC12481F9980F500932CA5 /* Fortunes.txt */,
 				4D8B77701F844DD900EFD3FF /* FortuneViewController.swift */,
 				4D8B776A1F8442D100EFD3FF /* Info.plist */,
 				4D8B77671F8442D100EFD3FF /* LaunchScreen.storyboard */,
-				4D8B77621F8442D100EFD3FF /* Main.storyboard */,
-				4D8B77601F8442D100EFD3FF /* MainViewController.swift */,
-				4DFA9A561F9AC041003EDD47 /* MessageViewController.swift */,
+				4DFDD08E20291488009ECBAD /* Main.storyboard */,
 				4D193B4E1F858D7B00228824 /* UIViewController+Fortune.swift */,
 				4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */,
 				4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */,
@@ -207,10 +219,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8B77741F8462C200EFD3FF /* WaitingViewController.xib in Resources */,
+				4DFDD09120291CBE009ECBAD /* Event.storyboard in Resources */,
 				4D8B77691F8442D100EFD3FF /* LaunchScreen.storyboard in Resources */,
 				4DBC12491F9980F500932CA5 /* Fortunes.txt in Resources */,
+				4DFDD08F20291488009ECBAD /* Main.storyboard in Resources */,
+				4DFDD097202A5AFD009ECBAD /* Events.json in Resources */,
 				4D8B77661F8442D100EFD3FF /* Assets.xcassets in Resources */,
-				4D8B77641F8442D100EFD3FF /* Main.storyboard in Resources */,
+				4D8B77641F8442D100EFD3FF /* Fortune.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +296,10 @@
 			files = (
 				4D193B4F1F858D7B00228824 /* UIViewController+Fortune.swift in Sources */,
 				4D8B77751F8462C200EFD3FF /* WaitingViewController.swift in Sources */,
-				4DFA9A571F9AC041003EDD47 /* MessageViewController.swift in Sources */,
+				4DFA9A571F9AC041003EDD47 /* FortuneMessageViewController.swift in Sources */,
 				4D193B4C1F85418200228824 /* AppData.swift in Sources */,
-				4D8B77611F8442D100EFD3FF /* MainViewController.swift in Sources */,
+				4DFDD09520292443009ECBAD /* ArrayPickerView.swift in Sources */,
+				4DFDD09320291FB4009ECBAD /* EventViewController.swift in Sources */,
 				4D8B77711F844DD900EFD3FF /* FortuneViewController.swift in Sources */,
 				4D8B775F1F8442D100EFD3FF /* AppDelegate.swift in Sources */,
 			);
@@ -292,12 +308,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		4D8B77621F8442D100EFD3FF /* Main.storyboard */ = {
+		4D8B77621F8442D100EFD3FF /* Fortune.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4D8B77631F8442D100EFD3FF /* Base */,
 			);
-			name = Main.storyboard;
+			name = Fortune.storyboard;
 			sourceTree = "<group>";
 		};
 		4D8B77671F8442D100EFD3FF /* LaunchScreen.storyboard */ = {

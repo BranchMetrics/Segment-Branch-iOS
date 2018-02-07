@@ -10,6 +10,8 @@ import UIKit
 import Analytics
 import Segment_Branch
 
+var Analytics: SEGAnalytics?
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,13 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
             didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey: Any]?
         ) -> Bool {
+        
         // Initialize our app data source:
         AppData.shared.initialize()
 
         // Initialize Segment analytics:
+        SEGAnalytics.debug(true)
         let configuration = SEGAnalyticsConfiguration(writeKey: "MlTmISmburwl2nN9o3NFpGfElujcfb0q")
         configuration.use(BNCBranchIntegrationFactory.instance())
-        SEGAnalytics.debug(true)
+        Analytics = SEGAnalytics(configuration: configuration)
 
         return true
     }

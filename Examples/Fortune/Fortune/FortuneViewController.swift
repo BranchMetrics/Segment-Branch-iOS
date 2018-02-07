@@ -1,5 +1,5 @@
 //
-//  FortuneViewController
+//  FortuneViewController.swift
 //  Fortune
 //
 //  Created by Edward Smith on 10/3/17.
@@ -9,163 +9,184 @@
 import UIKit
 import Branch
 
-class FortuneViewController: UIViewController, UITextViewDelegate {
+class FortuneViewController: UIViewController {
 
     // MARK: - Member Variables
-
+    
+    @IBOutlet weak var statsLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var linkTextView: UITextView!
-    @IBOutlet weak var shareButton: UIButton!
 
-    var message: String?
-
-    var branchURL : URL? {
-        didSet { updateUI() }
-    }
-
-    var branchImage : UIImage? {
-        didSet { updateUI() }
-    }
+    var enableShakes: Bool = false
 
     // MARK: - View Controller Lifecycle
 
-    static func instantiate() -> FortuneViewController {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "FortuneViewController")
-        return controller as! FortuneViewController
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.layer.borderColor = UIColor.darkGray.cgColor
-        self.imageView.layer.borderWidth = 0.5
-        self.imageView.layer.cornerRadius = 2.0
-        self.linkTextView.textContainer.maximumNumberOfLines = 1
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(branchWillStartSession(notification:)),
+            name: NSNotification.Name.BranchWillStartSession,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(branchDidStartSession(notification:)),
+            name: NSNotification.Name.BranchDidStartSession,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appStatsDidUpdate(notification:)),
+            name: NSNotification.Name.AppDataDidUpdate,
+            object: nil
+        )
+        updateStatsLabel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(_ : animated)
-        updateUI()
-        createLink()
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        messageLabel.layer.removeAllAnimations()
+        messageLabel.text =
+            "Shake the phone to reveal your mystic Branch fortune..."
+        updateStatsLabel()
     }
 
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        if self.linkTextView.text.count > 0 {
-            self.linkTextView.selectedRange = NSMakeRange(0, self.linkTextView.text.count)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.enableShakes = true
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.enableShakes = false
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        // Over-ride so the view controller can get shake events:
+        return enableShakes ? true : false
+    }
+
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake && enableShakes {
+            self.startMysticConjuring()
         }
     }
 
-    // MARK: - UI Updates
+    // MARK: - Notifications
 
-    func updateUI() {
-        guard let messageLabel = self.messageLabel else { return }
-        linkTextView.text = branchURL?.absoluteString ?? ""
-        imageView.image = branchImage
-        message = message ?? ""
-        if let message = message {
-            messageLabel.text = message + "”"
-        }
+    @objc func appStatsDidUpdate(notification: Notification) {
+        updateStatsLabel()
     }
 
-    func createLink() {
-        if branchURL != nil {
-            return
-        }
-        if message?.count == 0 {
-            self.showAlert(title: "No message to send!", message: "")
-            return
-        }
-
-        // Add some content to the Branch object:
-        let buo = BranchUniversalObject.init()
-        buo.title = "Bare Bones Branch Example"
-        buo.contentDescription = "A mysterious fortune."
-        buo.contentMetadata.customMetadata["message"] = self.message ?? ""
-        buo.contentMetadata.customMetadata["name"] = UIDevice.current.name
-
-        // Set some link properties:
-        let linkProperties = BranchLinkProperties.init()
-        linkProperties.channel = "Bare Bones Example"
-
-        // Generate the link asynchronously:
+    @objc func branchWillStartSession(notification: Notification) {
+        // Only show the waiting view if we've been opened by an URL tap:
+        guard let url = notification.userInfo?[BranchURLKey] as? URL else { return }
         WaitingViewController.showWithMessage(
-            message: "Getting link...",
+            message: "Opening\n\(url.absoluteString)",
             activityIndicator: true,
             disableTouches: true
         )
-        buo.getShortUrl(with: linkProperties) { (urlString: String?, error: Error?) in
-            WaitingViewController.hide()
-            if let s = urlString {
-                self.branchURL = URL.init(string: s)
-                AppData.shared.linksCreated += 1
-                self.generateQR()
-            } else
-            if let error = error {
-                self.showAlert(title: "Can't create link!", message: error.localizedDescription)
+    }
+
+    @objc func branchDidStartSession(notification: Notification) {
+        WaitingViewController.hide()
+
+        if let error = notification.userInfo?[BranchErrorKey] as? Error {
+            if let url = notification.userInfo?[BranchURLKey] as? URL {
+                self.showAlert(
+                    title: "Couldn't Open URL",
+                    message: "\(url.absoluteString)\n\n\(error.localizedDescription)"
+                )
+            } else {
+                self.showAlert(
+                    title: "Error Starting Branch Session",
+                    message: error.localizedDescription
+                )
             }
-            else {
-                self.showAlert(title: "Can't creat link!", message: "")
-            }
+            return
+        }
+
+        if let buo = notification.userInfo?[BranchUniversalObjectKey] as? BranchUniversalObject {
+            let messageViewController = FortuneMessageViewController.instantiate()
+            messageViewController.name = buo.contentMetadata.customMetadata["name"] as? String
+            messageViewController.message = buo.contentMetadata.customMetadata["message"] as? String
+            navigationController?.pushViewController(messageViewController, animated: true)
+            AppData.shared.linksOpened += 1
+            return
         }
     }
 
-    func generateQR() {
-        guard let url = self.branchURL else { return }
+    // MARK: - Update the UI
 
-        // Make the QR code:
-        let data = url.absoluteString.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        filter?.setValue(data, forKey: "inputMessage")
-        filter?.setValue("H", forKey: "inputCorrectionLevel")
-        guard var qrImage = filter?.outputImage else { return }
-
-        // We could stop here with the qrImage. But let's scale it up and add a logo.
-
-        // Scale:
-        let scaleX = 210 * UIScreen.main.scale
-        let transformScale = scaleX/qrImage.extent.size.width
-        let transform = CGAffineTransform(scaleX: transformScale, y: transformScale)
-        let scaleFilter = CIFilter(name: "CIAffineTransform")
-        scaleFilter?.setValue(qrImage, forKey: "inputImage")
-        scaleFilter?.setValue(transform, forKey: "inputTransform")
-        qrImage = scaleFilter?.outputImage as CIImage!
-
-        // Add a logo:
-        UIGraphicsBeginImageContext(CGSize(width: scaleX, height: scaleX))
-        let rect = CGRect(x: 0, y: 0, width: scaleX, height: scaleX)
-        let image = UIImage.init(ciImage: qrImage)
-        image.draw(in:rect);
-        var centerRect = CGRect(x: 0, y: 0, width: scaleX/2.5, height: scaleX/2.5)
-        centerRect.origin.x = (rect.width - centerRect.width) / 2.0
-        centerRect.origin.y = (rect.height - centerRect.height) / 2.0
-        let branchLogo = UIImage.init(named: "BranchLogo")
-        branchLogo?.draw(in:centerRect)
-        self.branchImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+    func updateStatsLabel() {
+        statsLabel.text =
+            "\(AppData.shared.appOpens)\n\(AppData.shared.linksOpened)\n\(AppData.shared.linksCreated)"
     }
 
-    func shareLink() {
-        guard
-            let url = self.branchURL,
-            let cgImage = self.branchImage?.cgImage,
-            let imagePNG = UIImagePNGRepresentation(UIImage.init(cgImage: cgImage))
-        else { return }
+    func startMysticConjuring() {
+        self.enableShakes = false
+        self.messageLabel.text = "Summoning mystic fortune spirits..."
 
-        let text = "Follow this link to reveal the mystic fortune enclosed..."
-        let activityController = UIActivityViewController.init(
-            activityItems: [text, url, imagePNG],
-            applicationActivities: []
-        )
-        activityController.title = "Share Your Fortune"
-        activityController.popoverPresentationController?.sourceView = shareButton
-        activityController.popoverPresentationController?.sourceRect = shareButton.bounds
-        activityController.setValue("My Fortune", forKey: "subject")
-        present(activityController, animated: true, completion: nil)
+        // Start the animation:
+        CATransaction.begin()
+        CATransaction.setCompletionBlock { self.revealMysticConjuring() }
+        CATransaction.setAnimationDuration(0.60)
+
+        var animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1.0
+        animation.toValue = 0.25
+        animation.repeatCount = 2.5
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards;
+        animation.autoreverses = true
+        self.messageLabel.layer.add(animation, forKey: "opacity")
+
+        animation = CABasicAnimation(keyPath: "transform.scale.x")
+        animation.fromValue = 1.0
+        animation.toValue = 1.35
+        animation.repeatCount = 2.5
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards;
+        animation.autoreverses = true
+        self.messageLabel.layer.add(animation, forKey: "transform.scale.x")
+
+        CATransaction.commit()
     }
 
-    @IBAction func shareLinkAction(_ sender: Any) {
-        self.shareLink()
+    func revealMysticConjuring() {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock { self.showFortune() }
+        CATransaction.setAnimationDuration(0.30)
+
+        var animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 1.0
+        animation.toValue = 0.00
+        animation.duration = 1.00
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards;
+        self.messageLabel.layer.add(animation, forKey: "opacity")
+
+        animation = CABasicAnimation(keyPath: "transform.scale.x")
+        animation.fromValue = 1.0
+        animation.toValue = 0.0
+        animation.duration = 1.00
+        animation.isRemovedOnCompletion = false
+        animation.fillMode = kCAFillModeForwards;
+        self.messageLabel.layer.add(animation, forKey: "transform.scale.x")
+
+        CATransaction.commit()
     }
 
+    func showFortune() {
+        let fortuneViewController = FortuneMessageViewController.instantiate()
+        fortuneViewController.message = AppData.shared.randomFortune()
+        navigationController?.pushViewController(fortuneViewController, animated: true)
+    }
 }

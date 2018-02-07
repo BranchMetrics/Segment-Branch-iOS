@@ -28,6 +28,7 @@ class AppData {
 
     static let shared = AppData()
     var fortunes: [String.SubSequence] = [ ]
+    var segmentEvents: Dictionary<String, AnyObject> = [:]
 
     private init() {
         appOpens = UserDefaults.standard.integer(forKey: "appOpens")
@@ -46,9 +47,22 @@ class AppData {
             object: nil
         )
         // http://www.fortunecookiemessage.com/archive.php
-        let fileURL = Bundle.main.bundleURL.appendingPathComponent("Fortunes.txt")
+        var fileURL = Bundle.main.bundleURL.appendingPathComponent("Fortunes.txt")
         if let allFortunes = try? String.init(contentsOf: fileURL) {
             self.fortunes = allFortunes.split(separator: "\n", omittingEmptySubsequences: true)
+        }
+        // https://segment.com/docs/spec/ecommerce/v2/
+        fileURL = Bundle.main.bundleURL.appendingPathComponent("Events.json")
+        if let fileData = try? Data.init(contentsOf: fileURL) {
+            var eventsObj: Any?
+            do {
+                try eventsObj = JSONSerialization.jsonObject(with: fileData, options: [])
+            } catch {
+                print("Can't read events JSON: \(error).")
+            }
+            if let e = eventsObj as! Dictionary<String, AnyObject>! {
+                self.segmentEvents = e
+            }
         }
     }
 

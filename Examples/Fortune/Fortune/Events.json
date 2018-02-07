@@ -1,0 +1,28 @@
+{
+    "Products Searched": {
+        "query": "blue hotpants"
+    },
+    "Product List Viewed": {
+        "list_id": "hot_deals_1",
+        "category": "Deals",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "position": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "position": 2,
+                "category": "Games"
+            }
+        ]
+    }
+}
