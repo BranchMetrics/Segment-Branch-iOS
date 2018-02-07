@@ -11,7 +11,7 @@
 
 @implementation BNCBranchIntegrationFactory
 
-+ (id)instance
++ (instancetype)instance
 {
     static dispatch_once_t once;
     static BNCBranchIntegrationFactory *sharedInstance;
@@ -21,7 +21,7 @@
     return sharedInstance;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     return self;
