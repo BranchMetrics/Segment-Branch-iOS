@@ -114,7 +114,7 @@ class FortuneViewController: UIViewController {
         }
 
         if let buo = notification.userInfo?[BranchUniversalObjectKey] as? BranchUniversalObject {
-            let messageViewController = FortuneMessageViewController.instantiate()
+            let messageViewController = FortuneReceivedViewController.instantiate()
             messageViewController.name = buo.contentMetadata.customMetadata["name"] as? String
             messageViewController.message = buo.contentMetadata.customMetadata["message"] as? String
             navigationController?.pushViewController(messageViewController, animated: true)
@@ -137,7 +137,7 @@ class FortuneViewController: UIViewController {
         // Start the animation:
         CATransaction.begin()
         CATransaction.setCompletionBlock { self.revealMysticConjuring() }
-        CATransaction.setAnimationDuration(0.60)
+        CATransaction.setAnimationDuration(1.0)
 
         var animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 1.0
@@ -185,8 +185,8 @@ class FortuneViewController: UIViewController {
     }
 
     func showFortune() {
-        let fortuneViewController = FortuneMessageViewController.instantiate()
+        let fortuneViewController = FortuneSendViewController.instantiate()
         fortuneViewController.message = AppData.shared.randomFortune()
-        navigationController?.pushViewController(fortuneViewController, animated: true)
+        self.present(fortuneViewController, animated: true, completion: nil)
     }
 }

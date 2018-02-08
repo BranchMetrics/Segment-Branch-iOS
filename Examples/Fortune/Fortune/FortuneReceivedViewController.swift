@@ -1,5 +1,5 @@
 //
-//  FortuneMessageViewController.swift
+//  FortuneReceivedViewController.swift
 //  Fortune
 //
 //  Created by Edward Smith on 10/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FortuneMessageViewController: UIViewController {
+class FortuneReceivedViewController: UIViewController {
 
     // MARK: - Member Variables
 
@@ -20,10 +20,10 @@ class FortuneMessageViewController: UIViewController {
 
     // MARK: - View Controller Lifecycle
 
-    static func instantiate() -> FortuneMessageViewController {
+    static func instantiate() -> FortuneReceivedViewController {
         let storyboard = UIStoryboard(name: "Fortune", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "FortuneMessageViewController")
-        return controller as! FortuneMessageViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "FortuneReceivedViewController")
+        return controller as! FortuneReceivedViewController
     }
 
     override func viewWillAppear(_ animated: Bool) {

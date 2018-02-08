@@ -25,10 +25,11 @@ class EventViewController: UIViewController {
     }
 
     @IBAction func sendEventAction(_ sender: Any) {
+        self.eventNameLabel.text = ""
+        self.eventBodyTextView.text = ""
         let keys: [ String ] = Array(AppData.shared.segmentEvents.keys)
         let picker = ArrayPickerView.init(array: keys)
         picker.doneButtonTitle = "Send"
-        picker.selectChangedBlock = { (selection: String?) -> Void in self.selectSegmentEvent(selection: selection) }
         picker.presentFromViewController(viewController: self, completion: { (selection: String?) in
             self.sendSegmentEvent(selection: selection)
         })
@@ -39,7 +40,7 @@ class EventViewController: UIViewController {
             self.eventNameLabel.text = selection
             self.eventBodyTextView.text = body.description
         } else {
-            self.eventNameLabel.text = "Choose an event."
+            self.eventNameLabel.text = ""
             self.eventBodyTextView.text = ""
         }
     }

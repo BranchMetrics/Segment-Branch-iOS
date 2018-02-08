@@ -13,7 +13,7 @@
         <scene sceneID="2Rv-VR-80H">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Fortune" storyboardName="Fortune" id="Z4S-We-mfB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Fortune" id="VrY-k3-nLK"/>
+                    <tabBarItem key="tabBarItem" title="Fortune" image="TabFortune" id="VrY-k3-nLK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NJ8-dB-h8F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -23,7 +23,7 @@
         <scene sceneID="LUi-Et-nhq">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Event" storyboardName="Event" referencedIdentifier="Event" id="z9d-Z5-lgE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Event" id="IL4-u5-14a"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Event" image="TabSegment" id="IL4-u5-14a"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GX5-Bz-P8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +45,11 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYo-FM-4L0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="141"/>
+            <point key="canvasLocation" x="201" y="115"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="TabFortune" width="25" height="25"/>
+        <image name="TabSegment" width="25" height="25"/>
+    </resources>
 </document>
