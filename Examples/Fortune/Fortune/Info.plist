@@ -56,7 +56,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>branch_key</key>
-	<string>key_live_jlsOZdng507DcPObmp184mjjtzp8n95t</string>
+	<dict>
+		<key>live</key>
+		<string>key_live_jlsOZdng507DcPObmp184mjjtzp8n95t</string>
+	</dict>
 	<key>branch_universal_link_domains</key>
 	<string>segmentfortune.app.link</string>
 </dict>

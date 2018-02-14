@@ -25,22 +25,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-hW-gnC">
-                                <rect key="frame" x="20" y="20" width="374" height="86"/>
+                                <rect key="frame" x="20" y="20" width="374" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hd-0b-3xK">
-                                        <rect key="frame" x="77" y="7" width="220" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="TYF-Ar-dKw"/>
-                                            <constraint firstAttribute="width" constant="220" id="mFs-Ai-yuD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Send a Segment Event..."/>
-                                        <connections>
-                                            <action selector="sendEventAction:" destination="6rD-Xc-mgX" eventType="touchUpInside" id="IUv-kS-tog"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaP-aX-kfC">
-                                        <rect key="frame" x="0.0" y="44" width="374" height="35"/>
+                                        <rect key="frame" x="0.0" y="28" width="374" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="osA-v7-OJr"/>
                                         </constraints>
@@ -48,19 +36,34 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0C0-hu-VfK">
+                                        <rect key="frame" x="67.666666666666686" y="0.0" width="240" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="CGy-uG-BPf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Segment Action" image="ChevronLightDown">
+                                            <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pickSegmentActionWithSender:" destination="6rD-Xc-mgX" eventType="touchDown" id="Y9G-pz-QHD"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="4hd-0b-3xK" firstAttribute="top" secondItem="bqm-hW-gnC" secondAttribute="top" constant="7" id="DBK-mT-L3n"/>
-                                    <constraint firstItem="4hd-0b-3xK" firstAttribute="centerX" secondItem="bqm-hW-gnC" secondAttribute="centerX" id="GbQ-vg-f94"/>
-                                    <constraint firstItem="UaP-aX-kfC" firstAttribute="top" secondItem="4hd-0b-3xK" secondAttribute="bottom" constant="7" id="GfT-Yj-2PQ"/>
+                                    <constraint firstItem="0C0-hu-VfK" firstAttribute="top" secondItem="bqm-hW-gnC" secondAttribute="top" id="IJ7-No-yNu"/>
                                     <constraint firstAttribute="trailing" secondItem="UaP-aX-kfC" secondAttribute="trailing" id="JKS-GZ-tZa"/>
                                     <constraint firstItem="UaP-aX-kfC" firstAttribute="leading" secondItem="bqm-hW-gnC" secondAttribute="leading" id="Q8q-6S-01m"/>
+                                    <constraint firstItem="UaP-aX-kfC" firstAttribute="top" secondItem="0C0-hu-VfK" secondAttribute="bottom" constant="7" id="SBO-iz-vqg"/>
+                                    <constraint firstItem="0C0-hu-VfK" firstAttribute="centerX" secondItem="bqm-hW-gnC" secondAttribute="centerX" id="Ypq-n6-mJk"/>
                                     <constraint firstAttribute="bottom" secondItem="UaP-aX-kfC" secondAttribute="bottom" constant="7" id="iMj-Oi-OOG"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Text data." translatesAutoresizingMaskIntoConstraints="NO" id="n1l-eP-Dqf">
-                                <rect key="frame" x="7" y="106" width="400" height="574"/>
+                                <rect key="frame" x="7" y="90" width="400" height="590"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -99,7 +102,7 @@
                     <connections>
                         <outlet property="eventBodyTextView" destination="n1l-eP-Dqf" id="Pn1-4I-l9n"/>
                         <outlet property="eventNameLabel" destination="UaP-aX-kfC" id="VQL-Bk-jfQ"/>
-                        <outlet property="sendEventButton" destination="4hd-0b-3xK" id="MDy-pw-WOC"/>
+                        <outlet property="segmentActionButton" destination="0C0-hu-VfK" id="tYf-Xi-0RL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjv-wr-jSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -108,6 +111,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ChevronLightDown" width="16" height="8"/>
         <image name="TabSegment" width="25" height="25"/>
     </resources>
 </document>

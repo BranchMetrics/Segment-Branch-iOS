@@ -1,5 +1,5 @@
 //
-//  ArrayPickerView.swift
+//  APArrayPickerView.swift
 //  Fortune
 //
 //  Created by Edward on 2/5/18.
@@ -8,15 +8,24 @@
 
 import UIKit
 
-class ArrayPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+class APArrayPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 
     private
     var pickerArray: [String] = []
     var dummyTextField: UITextField?
-    var completionBlock: ((String?) -> Void)?
 
     public
+    var selectedIndex: NSInteger {
+        get {
+            return self.selectedRow(inComponent: 0)
+        }
+        set {
+            self.selectRow(newValue, inComponent: 0, animated: false)
+        }
+    }
+    
     var doneButtonTitle: String?
+    var completionBlock: ((String?) -> Void)?
     var selectChangedBlock: ((String?) -> Void)?
 
     init(array: [String]) {

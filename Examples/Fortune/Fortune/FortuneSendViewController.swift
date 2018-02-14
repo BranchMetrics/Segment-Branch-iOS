@@ -79,14 +79,14 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate {
 
         // Add some content to the Branch object:
         let buo = BranchUniversalObject.init()
-        buo.title = "Bare Bones Branch Example"
+        buo.title = "Segment-Branch Example"
         buo.contentDescription = "A mysterious fortune."
         buo.contentMetadata.customMetadata["message"] = self.message ?? ""
         buo.contentMetadata.customMetadata["name"] = UIDevice.current.name
 
         // Set some link properties:
         let linkProperties = BranchLinkProperties.init()
-        linkProperties.channel = "Bare Bones Example"
+        linkProperties.channel = "Fortune"
 
         // Generate the link asynchronously:
         WaitingViewController.showWithMessage(
