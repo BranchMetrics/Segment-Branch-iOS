@@ -9,7 +9,7 @@
 import UIKit
 import Branch
 
-class FortuneSendViewController: UIViewController, UITextViewDelegate {
+class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewControllerTransitioningDelegate {
 
     // MARK: - Member Variables
 
@@ -19,6 +19,7 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var shareButton: UIButton!
 
     var message: String?
+    var originFrame: CGRect = .zero
 
     var branchURL : URL? {
         didSet { updateUI() }
@@ -32,8 +33,11 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate {
 
     static func instantiate() -> FortuneSendViewController {
         let storyboard = UIStoryboard(name: "Fortune", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "FortuneSendViewController")
-        return controller as! FortuneSendViewController
+        let controller =
+            storyboard.instantiateViewController(withIdentifier: "FortuneSendViewController")
+            as! FortuneSendViewController
+        controller.transitioningDelegate = controller
+        return controller
     }
 
     override func viewDidLoad() {
@@ -166,6 +170,14 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func shareLinkAction(_ sender: Any) {
         self.shareLink()
+    }
+
+    func animationController(
+        forPresented presented: UIViewController,
+        presenting: UIViewController,
+        source: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
+        return APFadeViewControllerTransition(originFrame: self.originFrame)
     }
 
 }

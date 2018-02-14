@@ -44,6 +44,10 @@ class FortuneViewController: UIViewController {
         updateStatsLabel()
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
@@ -117,7 +121,7 @@ class FortuneViewController: UIViewController {
             let messageViewController = FortuneReceivedViewController.instantiate()
             messageViewController.name = buo.contentMetadata.customMetadata["name"] as? String
             messageViewController.message = buo.contentMetadata.customMetadata["message"] as? String
-            navigationController?.pushViewController(messageViewController, animated: true)
+            self.present(messageViewController, animated: true, completion: nil)
             AppData.shared.linksOpened += 1
             return
         }
@@ -142,7 +146,7 @@ class FortuneViewController: UIViewController {
         var animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 1.0
         animation.toValue = 0.25
-        animation.repeatCount = 2.5
+        animation.repeatCount = 2.0
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards;
         animation.autoreverses = true
@@ -151,7 +155,7 @@ class FortuneViewController: UIViewController {
         animation = CABasicAnimation(keyPath: "transform.scale.x")
         animation.fromValue = 1.0
         animation.toValue = 1.35
-        animation.repeatCount = 2.5
+        animation.repeatCount = 2.0
         animation.isRemovedOnCompletion = false
         animation.fillMode = kCAFillModeForwards;
         animation.autoreverses = true
@@ -187,6 +191,10 @@ class FortuneViewController: UIViewController {
     func showFortune() {
         let fortuneViewController = FortuneSendViewController.instantiate()
         fortuneViewController.message = AppData.shared.randomFortune()
+        var origin = self.view.convert(self.messageLabel.frame, to: nil)
+        origin.origin.x += 30.0
+        origin.size.width -= 60.0
+        fortuneViewController.originFrame = origin
         self.present(fortuneViewController, animated: true, completion: nil)
     }
 }

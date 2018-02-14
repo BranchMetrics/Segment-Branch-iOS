@@ -19,6 +19,7 @@
 		4D8B77711F844DD900EFD3FF /* FortuneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B77701F844DD900EFD3FF /* FortuneViewController.swift */; };
 		4D8B77741F8462C200EFD3FF /* WaitingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */; };
 		4D8B77751F8462C200EFD3FF /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */; };
+		4D955CC62034991C00FB8008 /* APFadeViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D955CC52034991C00FB8008 /* APFadeViewControllerTransition.swift */; };
 		4D9C6E82202BDFED00D08919 /* FortuneSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C6E81202BDFEC00D08919 /* FortuneSendViewController.swift */; };
 		4D9C6E84202C2B5E00D08919 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C6E83202C2B5E00D08919 /* DismissSegue.swift */; };
 		4D9C6E872032377C00D08919 /* APDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9C6E862032377C00D08919 /* APDropDownMenu.swift */; };
@@ -64,6 +65,7 @@
 		4D8B77701F844DD900EFD3FF /* FortuneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneViewController.swift; sourceTree = "<group>"; };
 		4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaitingViewController.xib; sourceTree = "<group>"; };
 		4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		4D955CC52034991C00FB8008 /* APFadeViewControllerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APFadeViewControllerTransition.swift; sourceTree = "<group>"; };
 		4D9C6E81202BDFEC00D08919 /* FortuneSendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FortuneSendViewController.swift; sourceTree = "<group>"; };
 		4D9C6E83202C2B5E00D08919 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		4D9C6E862032377C00D08919 /* APDropDownMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APDropDownMenu.swift; sourceTree = "<group>"; };
@@ -122,8 +124,9 @@
 			children = (
 				4DFDD09420292443009ECBAD /* APArrayPickerView.swift */,
 				4D9C6E862032377C00D08919 /* APDropDownMenu.swift */,
-				4D9C6E8A20336CCD00D08919 /* APKeyboardEditor.xib */,
+				4D955CC52034991C00FB8008 /* APFadeViewControllerTransition.swift */,
 				4D9C6E8C2033717600D08919 /* APKeyboardEditor.swift */,
+				4D9C6E8A20336CCD00D08919 /* APKeyboardEditor.xib */,
 				4D193B4B1F85418200228824 /* AppData.swift */,
 				4D8B775E1F8442D100EFD3FF /* AppDelegate.swift */,
 				4D8B77651F8442D100EFD3FF /* Assets.xcassets */,
@@ -315,6 +318,7 @@
 			files = (
 				4D9C6E892032695B00D08919 /* UIImage+AP.swift in Sources */,
 				4D193B4F1F858D7B00228824 /* UIViewController+Fortune.swift in Sources */,
+				4D955CC62034991C00FB8008 /* APFadeViewControllerTransition.swift in Sources */,
 				4D9C6E84202C2B5E00D08919 /* DismissSegue.swift in Sources */,
 				4D8B77751F8462C200EFD3FF /* WaitingViewController.swift in Sources */,
 				4DFA9A571F9AC041003EDD47 /* FortuneReceivedViewController.swift in Sources */,
