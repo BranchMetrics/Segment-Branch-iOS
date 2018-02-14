@@ -11,7 +11,7 @@ import UIKit
 class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
     private let originFrame: CGRect
-    let animationTime: TimeInterval = 4.0
+    let animationTime: TimeInterval = 0.30
 
     init(originFrame: CGRect) {
       self.originFrame = originFrame
@@ -22,33 +22,46 @@ class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        // See: https://www.raywenderlich.com/170144/custom-uiviewcontroller-transitions-getting-started
+
         guard
-            let toVC = transitionContext.viewController(forKey: .to)
-//            let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
+            let toVC = transitionContext.viewController(forKey: .to),
+            //let fromVC = transitionContext.viewController(forKey: .from),
+            let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
             else { return }
-
-        let containerView = transitionContext.containerView
-        containerView.addSubview(toVC.view)
-        toVC.view.frame = containerView.convert(self.originFrame, from: nil)
-        //toVC.view.alpha = 0.50
-        toVC.view.clipsToBounds = true
-        toVC.view.contentMode = .scaleToFill
-
-//        toVC.view.layer.borderColor = UIColor.red.cgColor
-//        toVC.view.layer.borderWidth = 4.0
 
         let duration = transitionDuration(using: transitionContext)
         let finalFrame = transitionContext.finalFrame(for: toVC)
+
+        let containerView = transitionContext.containerView
+        containerView.backgroundColor = .white
+        containerView.addSubview(toVC.view)
+        toVC.view.frame = finalFrame
+        toVC.view.isHidden = true;
+
+        containerView.addSubview(snapshot)
+        var fromFrame = containerView.convert(self.originFrame, from: nil)
+        fromFrame = finalFrame.rectAspectFitIn(rect: fromFrame)
+        snapshot.frame = fromFrame
+        snapshot.clipsToBounds = true
+        snapshot.contentMode = .scaleAspectFit
+        snapshot.backgroundColor = .white
+
+        snapshot.alpha = 0.10
+        //snapshot.layer.borderColor = UIColor.red.cgColor
+        //snapshot.layer.borderWidth = 4.0
 
         UIView.animate(
             withDuration: duration,
             delay: 0.0,
             options: .curveLinear,
             animations: {
-                toVC.view.frame = finalFrame
-                toVC.view.alpha = 1.0
+                snapshot.frame = finalFrame
+                snapshot.alpha = 1.0
             },
             completion: { _ in
+                toVC.view.isHidden = false
+                snapshot.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
         )

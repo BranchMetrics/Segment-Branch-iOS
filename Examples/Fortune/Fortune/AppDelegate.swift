@@ -13,7 +13,6 @@ import Branch
 
 // Initialize Segment analytics
 var Analytics: SEGAnalytics = {
-    //Branch.getInstance().initSession(launchOptions: launchOptions) // Initialize Branch
     let configuration = SEGAnalyticsConfiguration(writeKey: "MJ0oYt38lzMKtdk5uPjXbpo7JOrlTJQP")
     configuration.use(BNCBranchIntegrationFactory.instance())
     configuration.trackApplicationLifecycleEvents = true
@@ -42,20 +41,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
-/* TODO:
-    func application(_ application: UIApplication,
-             continue userActivity: NSUserActivity,
-                restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        Branch.getInstance().continue(userActivity)
-        return true
-    }
-
-    func application(_ application: UIApplication,
-                          open url: URL,
-                           options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        Branch.getInstance().application(application, open: url, options: options)
-        return true
-    }
-*/
 }

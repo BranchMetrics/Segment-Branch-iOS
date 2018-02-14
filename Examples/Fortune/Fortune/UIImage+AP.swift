@@ -14,11 +14,33 @@ extension CGRect {
         return CGRect(
             x:      rect.origin.x + ((rect.size.width - self.size.width)/2.0),
             y:      rect.origin.y + ((rect.size.height - self.size.height)/2.0),
-            width:  rect.size.width,
-            height: rect.size.height
+            width:  self.size.width,
+            height: self.size.height
         )
     }
 
+    func rectAspectFitIn(rect: CGRect) -> CGRect {
+        if rect.width <= 0 || rect.height <= 0 || self.width <= 0 || self.height <= 0 {
+            return CGRect.zero.rectCenteredOver(rect: rect)
+        }
+        var r: CGRect = .zero
+        if (rect.width / rect.height) < (self.width / self.height) {
+            r = CGRect(
+                x: 0.0,
+                y: 0.0,
+                width:  rect.width,
+                height: rect.height * self.height / self.width
+            )
+        } else {
+            r = CGRect(
+                x: 0.0,
+                y: 0.0,
+                width:  rect.width * self.width / self.height,
+                height: rect.height
+            )
+        }
+        return r.rectCenteredOver(rect: rect)
+    }
 }
 
 extension UIImage {

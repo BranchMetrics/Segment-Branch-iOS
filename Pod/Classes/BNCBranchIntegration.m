@@ -23,6 +23,10 @@
 
 #pragma mark - Event Utilities
 
+// These methods translate Segment events to Branch events.
+//
+// See https://segment.com/docs/spec/ecommerce/v2/ for the details of the Segment standard fields.
+
 + (NSString*) branchEventFromSegmentEventName:(NSString*)segmentEventName {
     id<NSObject> const kNull = [NSNull null];
 
@@ -128,6 +132,20 @@
 + (BranchUniversalObject*) universalObjectFromDictionary:(NSMutableDictionary*)dictionary {
     NSInteger initialCount = dictionary.count;
     if (initialCount == 0) return nil;
+
+    /* Segment product fields:
+        product_id
+        sku
+        category
+        name
+        brand
+        variant
+        price
+        quantity
+        url
+        image_url
+    */
+
     BranchUniversalObject *object = [[BranchUniversalObject alloc] init];
     object.contentMetadata.contentSchema = BranchContentSchemaCommerceProduct;
     
