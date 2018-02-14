@@ -9,5 +9,4 @@
 @import UIKit;
 
 @interface BNCViewController : UIViewController
-
 @end

@@ -3,16 +3,12 @@ PODS:
   - Branch (0.22.5):
     - Branch/Core (= 0.22.5)
   - Branch/Core (0.22.5)
-  - Expecta (1.0.6)
   - Segment-Branch (0.1.8):
     - Analytics
     - Branch
-  - Specta (1.0.7)
 
 DEPENDENCIES:
-  - Expecta
   - Segment-Branch (from `../../`)
-  - Specta
 
 EXTERNAL SOURCES:
   Segment-Branch:
@@ -21,10 +17,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
   Branch: 4f0482418d99e77d15b0e6065ef216c10e24797b
-  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Segment-Branch: 4fb361fe73e5c0fc537ba3cd6065a751857ecd61
-  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  Segment-Branch: 79d653b5567d2d73bde7e51522cb35d0e29438e8
 
-PODFILE CHECKSUM: d08fcabfb39113112251d6e54f647700d200335e
+PODFILE CHECKSUM: 390a8bf1f28b444ee65d0f9499e5205ea0ccd1c7
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

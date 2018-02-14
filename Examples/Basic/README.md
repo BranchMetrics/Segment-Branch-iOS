@@ -15,7 +15,7 @@ integration.
 Install the CocoaPod from the command line:
 
 ```
-cd Example
+cd Examples/Basic
 pod install
 pod update
 ```
