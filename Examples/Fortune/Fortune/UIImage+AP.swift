@@ -24,19 +24,19 @@ extension CGRect {
             return CGRect.zero.rectCenteredOver(rect: rect)
         }
         var r: CGRect = .zero
-        if (rect.width / rect.height) < (self.width / self.height) {
+        if self.width < self.height {
             r = CGRect(
                 x: 0.0,
                 y: 0.0,
-                width:  rect.width,
-                height: rect.height * self.height / self.width
+                width:  rect.width * rect.height / self.height,
+                height: rect.height
             )
         } else {
             r = CGRect(
                 x: 0.0,
                 y: 0.0,
-                width:  rect.width * self.width / self.height,
-                height: rect.height
+                width:  rect.width,
+                height: rect.height * rect.width / self.width
             )
         }
         return r.rectCenteredOver(rect: rect)
@@ -46,7 +46,6 @@ extension CGRect {
 extension UIImage {
 
     class func imageWith(color: UIColor, size: CGSize) -> UIImage? {
-        //UIImage *image = nil;
         let rect = CGRect(
             origin: .zero,
             size:   size

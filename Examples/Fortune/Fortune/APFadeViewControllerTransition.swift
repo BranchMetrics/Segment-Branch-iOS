@@ -11,7 +11,7 @@ import UIKit
 class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
     private let originFrame: CGRect
-    let animationTime: TimeInterval = 0.30
+    let animationTime: TimeInterval = 0.75
 
     init(originFrame: CGRect) {
       self.originFrame = originFrame
@@ -26,7 +26,7 @@ class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
 
         guard
             let toVC = transitionContext.viewController(forKey: .to),
-            //let fromVC = transitionContext.viewController(forKey: .from),
+            let fromVC = transitionContext.viewController(forKey: .from),
             let snapshot = toVC.view.snapshotView(afterScreenUpdates: true)
             else { return }
 
@@ -47,7 +47,7 @@ class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         snapshot.contentMode = .scaleAspectFit
         snapshot.backgroundColor = .white
 
-        snapshot.alpha = 0.10
+        //snapshot.alpha = 0.10
         //snapshot.layer.borderColor = UIColor.red.cgColor
         //snapshot.layer.borderWidth = 4.0
 
@@ -56,13 +56,15 @@ class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
             delay: 0.0,
             options: .curveLinear,
             animations: {
+                fromVC.view.alpha = 0.0
                 snapshot.frame = finalFrame
-                snapshot.alpha = 1.0
+                //snapshot.alpha = 1.0
             },
             completion: { _ in
                 toVC.view.isHidden = false
                 snapshot.removeFromSuperview()
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+                fromVC.view.alpha = 1.0
             }
         )
     }

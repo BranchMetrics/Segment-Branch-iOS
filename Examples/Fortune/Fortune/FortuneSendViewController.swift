@@ -18,14 +18,18 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewCon
     @IBOutlet weak var linkTextView: UITextView!
     @IBOutlet weak var shareButton: UIButton!
 
-    var message: String?
     var originFrame: CGRect = .zero
 
+    var message: String?
+    
     var branchURL : URL? {
-        didSet { updateUI() }
+        didSet {
+            generateQR()
+            updateUI()
+        }
     }
 
-    var branchImage : UIImage? {
+    var qrImage : UIImage? {
         didSet { updateUI() }
     }
 
@@ -51,7 +55,6 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewCon
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(_ : animated)
         updateUI()
-        createLink()
     }
 
     func textViewDidChangeSelection(_ textView: UITextView) {
@@ -65,52 +68,10 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewCon
     func updateUI() {
         guard let messageLabel = self.messageLabel else { return }
         linkTextView.text = branchURL?.absoluteString ?? ""
-        imageView.image = branchImage
+        imageView.image = qrImage
         message = message ?? ""
         if let message = message {
             messageLabel.text = message + "”"
-        }
-    }
-
-    func createLink() {
-        if branchURL != nil {
-            return
-        }
-        if message?.count == 0 {
-            self.showAlert(title: "No message to send!", message: "")
-            return
-        }
-
-        // Add some content to the Branch object:
-        let buo = BranchUniversalObject.init()
-        buo.title = "Segment-Branch Example"
-        buo.contentDescription = "A mysterious fortune."
-        buo.contentMetadata.customMetadata["message"] = self.message ?? ""
-        buo.contentMetadata.customMetadata["name"] = UIDevice.current.name
-
-        // Set some link properties:
-        let linkProperties = BranchLinkProperties.init()
-        linkProperties.channel = "Fortune"
-
-        // Generate the link asynchronously:
-        WaitingViewController.showWithMessage(
-            message: "Getting link...",
-            activityIndicator: true,
-            disableTouches: true
-        )
-        buo.getShortUrl(with: linkProperties) { (urlString: String?, error: Error?) in
-            WaitingViewController.hide()
-            if let s = urlString {
-                self.branchURL = URL.init(string: s)
-                AppData.shared.linksCreated += 1
-                self.generateQR()
-            } else
-            if let error = error {
-                self.showAlert(title: "Can't create link!", message: error.localizedDescription)
-            }
-            else {
-                self.showAlert(title: "Can't creat link!", message: "")
-            }
         }
     }
 
@@ -145,14 +106,14 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewCon
         centerRect.origin.y = (rect.height - centerRect.height) / 2.0
         let branchLogo = UIImage.init(named: "BranchLogo")
         branchLogo?.draw(in:centerRect)
-        self.branchImage = UIGraphicsGetImageFromCurrentImageContext()
+        self.qrImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
 
     func shareLink() {
         guard
             let url = self.branchURL,
-            let cgImage = self.branchImage?.cgImage,
+            let cgImage = self.qrImage?.cgImage,
             let imagePNG = UIImagePNGRepresentation(UIImage.init(cgImage: cgImage))
         else { return }
 
