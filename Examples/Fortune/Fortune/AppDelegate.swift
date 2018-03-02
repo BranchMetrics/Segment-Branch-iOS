@@ -13,7 +13,9 @@ import Branch
 
 // Initialize Segment analytics
 var Analytics: SEGAnalytics = {
-    let configuration = SEGAnalyticsConfiguration(writeKey: "MJ0oYt38lzMKtdk5uPjXbpo7JOrlTJQP")
+    // ebs Key "MJ0oYt38lzMKtdk5uPjXbpo7JOrlTJQP"
+    // dqb Key "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm"
+    let configuration = SEGAnalyticsConfiguration(writeKey: "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm")
     configuration.use(BNCBranchIntegrationFactory.instance())
     configuration.trackApplicationLifecycleEvents = true
     configuration.recordScreenViews = true
