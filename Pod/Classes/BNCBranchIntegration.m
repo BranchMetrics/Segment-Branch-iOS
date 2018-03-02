@@ -303,7 +303,6 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
     [[Branch getInstance] initSessionWithLaunchOptions:notification.userInfo];
     SEGLog(@"[[Branch getInstance] initSessionWithLaunchOptions:%@]", notification.userInfo);
-
 }
 
 - (void)receivedRemoteNotification:(NSDictionary *)userInfo {
