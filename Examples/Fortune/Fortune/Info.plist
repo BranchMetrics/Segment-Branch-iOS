@@ -61,6 +61,10 @@
 		<string>key_live_jlsOZdng507DcPObmp184mjjtzp8n95t</string>
 	</dict>
 	<key>branch_universal_link_domains</key>
-	<string>segmentfortune.app.link</string>
+	<array>
+		<string>segmentfortune.app.link</string>
+		<string>segmentfortune.test-app.link</string>
+		<string>segmentfortune-alternate.app.link</string>
+	</array>
 </dict>
 </plist>

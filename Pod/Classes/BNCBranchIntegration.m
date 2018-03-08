@@ -97,7 +97,7 @@
         if ([string compare:category options:NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch] == NSOrderedSame)
             return category;
     }
-    return nil;
+    return /*nil*/ BNCProductCategoryBabyToddler;   // eDebug - test this.
 }
 
 #define addStringField(field, name) { \
@@ -164,7 +164,7 @@
     addStringField(object.canonicalUrl, url);
     addStringField(object.imageUrl,  image_url);
 
-    // Segment fields not handled: coupon, position.
+    // Segment fields not handled: coupon and position, for instance.
     object.contentMetadata.customMetadata = [self stringDictionaryFromDictionary:dictionary];
 
     // If we didn't add any fields return a nil object:

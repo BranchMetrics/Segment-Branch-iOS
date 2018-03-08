@@ -5,6 +5,8 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:segmentfortune.app.link</string>
+		<string>applinks:segmentfortune.test-app.link</string>
+		<string>applinks:segmentfortune-alternate.app.link</string>
 	</array>
 </dict>
 </plist>
