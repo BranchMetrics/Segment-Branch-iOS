@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="CourierNewBold.ttf">
+            <string>CourierNewPS-BoldMT</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Events-->
+        <scene sceneID="vUK-m1-ZLy">
+            <objects>
+                <viewController storyboardIdentifier="Event" id="6rD-Xc-mgX" customClass="EventViewController" customModule="Fortune" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="27o-UU-ehO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bqm-hW-gnC">
+                                <rect key="frame" x="20" y="20" width="374" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaP-aX-kfC">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="osA-v7-OJr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0C0-hu-VfK">
+                                        <rect key="frame" x="67.666666666666686" y="0.0" width="240" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="240" id="CGy-uG-BPf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Segment Action" image="ChevronLightDown">
+                                            <color key="titleColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pickSegmentActionWithSender:" destination="6rD-Xc-mgX" eventType="touchDown" id="Y9G-pz-QHD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0C0-hu-VfK" firstAttribute="top" secondItem="bqm-hW-gnC" secondAttribute="top" id="IJ7-No-yNu"/>
+                                    <constraint firstAttribute="trailing" secondItem="UaP-aX-kfC" secondAttribute="trailing" id="JKS-GZ-tZa"/>
+                                    <constraint firstItem="UaP-aX-kfC" firstAttribute="leading" secondItem="bqm-hW-gnC" secondAttribute="leading" id="Q8q-6S-01m"/>
+                                    <constraint firstItem="UaP-aX-kfC" firstAttribute="top" secondItem="0C0-hu-VfK" secondAttribute="bottom" constant="7" id="SBO-iz-vqg"/>
+                                    <constraint firstItem="0C0-hu-VfK" firstAttribute="centerX" secondItem="bqm-hW-gnC" secondAttribute="centerX" id="Ypq-n6-mJk"/>
+                                    <constraint firstAttribute="bottom" secondItem="UaP-aX-kfC" secondAttribute="bottom" constant="7" id="iMj-Oi-OOG"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Text data." translatesAutoresizingMaskIntoConstraints="NO" id="n1l-eP-Dqf">
+                                <rect key="frame" x="7" y="90" width="400" height="590"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n1l-eP-Dqf" firstAttribute="top" secondItem="bqm-hW-gnC" secondAttribute="bottom" id="6YO-fS-ICM"/>
+                            <constraint firstItem="bqm-hW-gnC" firstAttribute="top" secondItem="BGg-1n-rLK" secondAttribute="top" id="FbM-hg-T2Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bqm-hW-gnC" secondAttribute="trailing" id="VrO-Ng-2T6"/>
+                            <constraint firstItem="bqm-hW-gnC" firstAttribute="leading" secondItem="27o-UU-ehO" secondAttribute="leadingMargin" id="eE0-fV-4he"/>
+                            <constraint firstItem="BGg-1n-rLK" firstAttribute="trailing" secondItem="n1l-eP-Dqf" secondAttribute="trailing" constant="7" id="eOO-fh-dCc"/>
+                            <constraint firstItem="n1l-eP-Dqf" firstAttribute="leading" secondItem="BGg-1n-rLK" secondAttribute="leading" constant="7" id="ihq-YS-ywa"/>
+                            <constraint firstItem="BGg-1n-rLK" firstAttribute="bottom" secondItem="n1l-eP-Dqf" secondAttribute="bottom" constant="7" id="z6F-J9-fWj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BGg-1n-rLK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Events" image="TabSegment" id="5Bc-Je-Izk"/>
+                    <navigationItem key="navigationItem" id="4cg-zL-oo0">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Dxl-I0-rBT">
+                            <rect key="frame" x="70.5" y="7" width="179" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="MiK-E9-o5d"/>
+                                <constraint firstAttribute="width" constant="190" id="N1G-hN-ljp"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Send a Segment event..."/>
+                            <connections>
+                                <action selector="sendEventAction:" destination="6rD-Xc-mgX" eventType="touchUpInside" id="9ng-Ia-nTH"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="eventBodyTextView" destination="n1l-eP-Dqf" id="Pn1-4I-l9n"/>
+                        <outlet property="eventNameLabel" destination="UaP-aX-kfC" id="VQL-Bk-jfQ"/>
+                        <outlet property="segmentActionButton" destination="0C0-hu-VfK" id="tYf-Xi-0RL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xjv-wr-jSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.11594202898553" y="185.05434782608697"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ChevronLightDown" width="16" height="8"/>
+        <image name="TabSegment" width="25" height="25"/>
+    </resources>
+</document>

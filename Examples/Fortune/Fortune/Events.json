@@ -1,0 +1,404 @@
+{
+    "Products Searched": {
+        "query": "blue hotpants"
+    },
+    "Product List Viewed": {
+        "list_id": "hot_deals_1",
+        "category": "Deals",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "position": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "position": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Product List Filtered": {
+        "list_id": "todays_deals_may_11_2016",
+        "filters": [{
+                "type": "department",
+                "value": "beauty"
+            },
+            {
+                "type": "price",
+                "value": "under-$25"
+            }
+        ],
+        "sorts": [{
+            "type": "price",
+            "value": "desc"
+        }],
+        "products": [{
+                "product_id": "507f1f77bcf86cd798439011",
+                "sku": "45360-32",
+                "name": "Dove Facial Powder",
+                "price": 12.60,
+                "position": 1,
+                "category": "Beauty",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc283733",
+                "sku": "46573-32",
+                "name": "Artin Hairbrush",
+                "price": 7.60,
+                "position": 2,
+                "category": "Beauty"
+            }
+        ]
+    },
+    "Promotion Viewed": {
+        "promotion_id": "promo_1",
+        "creative": "top_banner_2",
+        "name": "75% store-wide shoe sale",
+        "position": "home_banner_top"
+    },
+    "Promotion Clicked": {
+        "promotion_id": "promo_1",
+        "creative": "top_banner_2",
+        "name": "75% store-wide shoe sale",
+        "position": "home_banner_top"
+    },
+    "Product Clicked": {
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Product Viewed": {
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "currency": "usd",
+        "position": 3,
+        "value": 18.99,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Product Added": {
+        "cart_id": "skdjsidjsdkdj29j",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Product Removed": {
+        "cart_id": "ksjdj92dj29dj92d2j",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Cart Viewed": {
+        "cart_id": "d92jd29jd92jd29j92d92jd",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "position": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "position": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Checkout Started": {
+        "order_id": "50314b8e9bcf000000000000",
+        "affiliation": "Google Store",
+        "value": 30,
+        "revenue": 25,
+        "shipping": 3,
+        "tax": 2,
+        "discount": 2.5,
+        "coupon": "hasbros",
+        "currency": "USD",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "quantity": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "quantity": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Checkout Step Viewed": {
+        "checkout_id": "50314b8e9bcf000000000000",
+        "step": 2,
+        "shipping_method": "Fedex",
+        "payment_method": "Visa"
+    },
+    "Checkout Step Completed": {
+        "checkout_id": "50314b8e9bcf000000000000",
+        "step": 2,
+        "shipping_method": "Fedex",
+        "payment_method": "Visa"
+    },
+    "Payment Info Entered": {
+        "checkout_id": "39f39fj39f3jf93fj9fj39fj3f",
+        "order_id": "dkfsjidfjsdifsdfksdjfkdsfjsdfkdsf"
+    },
+    "Order Updated": {
+        "order_id": "50314b8e9bcf000000000000",
+        "affiliation": "Google Store",
+        "total": 30,
+        "revenue": 25,
+        "shipping": 3,
+        "tax": 2,
+        "discount": 2.5,
+        "coupon": "hasbros",
+        "currency": "USD",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "quantity": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "quantity": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Order Completed": {
+        "checkout_id": "fksdjfsdjfisjf9sdfjsd9f",
+        "order_id": "50314b8e9bcf000000000000",
+        "affiliation": "Google Store",
+        "total": 30,
+        "revenue": 25,
+        "shipping": 3,
+        "tax": 2,
+        "discount": 2.5,
+        "coupon": "hasbros",
+        "currency": "USD",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "quantity": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "quantity": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Order Refunded": {
+        "order_id": "50314b8e9bcf000000000000"
+    },
+    "Order Cancelled": {
+        "order_id": "50314b8e9bcf000000000000",
+        "affiliation": "Google Store",
+        "total": 30,
+        "revenue": 25,
+        "shipping": 3,
+        "tax": 2,
+        "discount": 2.5,
+        "coupon": "hasbros",
+        "currency": "USD",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011",
+                "sku": "45790-32",
+                "name": "Monopoly: 3rd Edition",
+                "price": 19,
+                "quantity": 1,
+                "category": "Games",
+                "url": "https://www.company.com/product/path",
+                "image_url": "https://www.company.com/product/path.jpg"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733",
+                "sku": "46493-32",
+                "name": "Uno Card Game",
+                "price": 3,
+                "quantity": 2,
+                "category": "Games"
+            }
+        ]
+    },
+    "Coupon Entered": {
+        "order_id": "50314b8e9bcf000000000000",
+        "cart_id": "923923929jd29jd92dj9j93fj3",
+        "coupon_id": "may_deals_2016"
+    },
+    "Coupon Applied": {
+        "order_id": "50314b8e9bcf000000000000",
+        "cart_id": "923923929jd29jd92dj9j93fj3",
+        "coupon_id": "may_deals_2016",
+        "coupon_name": "May Deals 2016",
+        "discount": 23.32
+    },
+    "Coupon Denied": {
+        "order_id": "50314b8e9bcf000000000000",
+        "cart_id": "923923929jd29jd92dj9j93fj3",
+        "coupon": "may_deals_2016",
+        "reason": "Coupon expired"
+    },
+    "Coupon Removed": {
+        "order_id": "50314b8e9bcf000000000000",
+        "cart_id": "923923929jd29jd92dj9j93fj3",
+        "coupon_id": "may_deals_2016",
+        "coupon_name": "May Deals 2016",
+        "discount": 23.32
+    },
+    "Product Added to Wishlist": {
+        "wishlist_id": "skdjsidjsdkdj29j",
+        "wishlist_name": "Loved Games",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Product Removed from Wishlist": {
+        "wishlist_id": "skdjsidjsdkdj29j",
+        "wishlist_name": "Loved Games",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Wishlist Product Added to Cart": {
+        "wishlist_id": "skdjsidjsdkdj29j",
+        "wishlist_name": "Loved Games",
+        "cart_id": "99j2d92j9dj29dj29d2d",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "quantity": 1,
+        "coupon": "MAYDEALS",
+        "position": 3,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Product Shared": {
+        "share_via": "email",
+        "share_message": "Hey, check out this item",
+        "recipient": "friend@gmail.com",
+        "product_id": "507f1f77bcf86cd799439011",
+        "sku": "G-32",
+        "category": "Games",
+        "name": "Monopoly: 3rd Edition",
+        "brand": "Hasbro",
+        "variant": "200 pieces",
+        "price": 18.99,
+        "url": "https://www.company.com/product/path",
+        "image_url": "https://www.company.com/product/path.jpg"
+    },
+    "Cart Shared": {
+        "share_via": "email",
+        "share_message": "Hey, check out this item",
+        "recipient": "friend@gmail.com",
+        "cart_id": "d92jd29jd92jd29j92d92jd",
+        "products": [{
+                "product_id": "507f1f77bcf86cd799439011"
+            },
+            {
+                "product_id": "505bd76785ebb509fc183733"
+            }
+        ]
+    },
+    "Product Reviewed": {
+        "product_id": "507f1f77bcf86cd799439011",
+        "review_id": "kdfjrj39fj39jf3",
+        "review_body": "I love this product",
+        "rating": "5"
+    }
+}

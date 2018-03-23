@@ -1,0 +1,24 @@
+PODS:
+  - Analytics (3.6.9)
+  - Branch (0.22.5):
+    - Branch/Core (= 0.22.5)
+  - Branch/Core (0.22.5)
+  - Segment-Branch (0.1.8):
+    - Analytics
+    - Branch
+
+DEPENDENCIES:
+  - Segment-Branch (from `../../`)
+
+EXTERNAL SOURCES:
+  Segment-Branch:
+    :path: ../../
+
+SPEC CHECKSUMS:
+  Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
+  Branch: 4f0482418d99e77d15b0e6065ef216c10e24797b
+  Segment-Branch: 79d653b5567d2d73bde7e51522cb35d0e29438e8
+
+PODFILE CHECKSUM: 390a8bf1f28b444ee65d0f9499e5205ea0ccd1c7
+
+COCOAPODS: 1.4.0
