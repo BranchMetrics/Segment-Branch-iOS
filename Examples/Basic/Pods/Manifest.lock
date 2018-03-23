@@ -1,9 +1,9 @@
 PODS:
   - Analytics (3.6.9)
-  - Branch (0.22.5):
-    - Branch/Core (= 0.22.5)
-  - Branch/Core (0.22.5)
-  - Segment-Branch (0.1.8):
+  - Branch (0.23.4):
+    - Branch/Core (= 0.23.4)
+  - Branch/Core (0.23.4)
+  - Segment-Branch (0.1.9):
     - Analytics
     - Branch
 
@@ -16,9 +16,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
-  Branch: 4f0482418d99e77d15b0e6065ef216c10e24797b
-  Segment-Branch: 79d653b5567d2d73bde7e51522cb35d0e29438e8
+  Branch: e1d239276ff9b30910f3bf4374d9e3e77f7fc7e9
+  Segment-Branch: 360c38cfd98030450ccb638922f13304e13a4ba0
 
-PODFILE CHECKSUM: 390a8bf1f28b444ee65d0f9499e5205ea0ccd1c7
+PODFILE CHECKSUM: 78184f7517c6ccb70de817ffff6b14b6aa2be09c
 
 COCOAPODS: 1.4.0

@@ -3,6 +3,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target 'Segment-Branch_Example' do
+target 'Segment-Branch-Example' do
   pod "Segment-Branch", :path => "../../"
 end
