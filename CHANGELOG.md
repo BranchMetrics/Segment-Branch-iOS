@@ -1,4 +1,9 @@
-Branch-Segment-iOS change log
+# Branch-Segment-iOS Change Log
+
+- v0.1.9
+  * Updated the interface so that Segment events are also tracked in the Branch dashboard.
+  * Added a better example: Example/Fortune.
+  * Updated the Branch SDK to version 0.23.4.
 
 - v0.1.8
   * Updated the Branch SDK to version 0.21.16.

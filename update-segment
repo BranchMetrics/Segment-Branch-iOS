@@ -11,7 +11,7 @@ scriptpath=$(cd "$(dirname "${scriptpath}")" && pwd)
 cd "${scriptpath}"
 
 # Make sure the version, podspec, and CHANGELOG.md are all updated.
-version=0.1.8
+version=0.1.9
 
 edit Segment-Branch.podspec
 edit CHANGELOG.md
@@ -25,9 +25,10 @@ askYN "Continue?"
 
 phone="iPhone 7 Plus"
 phoneOS="latest"
+homedir=`pwd`
 
-echo ">>> Building Example..."
-cd Example
+echo ">>> Building Examples/Basic..."
+cd Examples/Basic
 pod install
 pod update
 xcodebuild \
@@ -36,10 +37,22 @@ xcodebuild \
     -destination name="$phone",OS="$phoneOS" \
     -quiet \
     clean build
+cd $homedir
+
+echo ">>> Building Examples/Fortune..."
+cd Examples/Fortune
+pod install
+pod update
+xcodebuild \
+    -workspace Fortune.xcworkspace \
+    -scheme Fortune \
+    -destination name="$phone",OS="$phoneOS" \
+    -quiet \
+    clean build
+cd $homedir
 
 # Commit to git and push podspec:
 
-cd ..
 echo ">>> Committing to git and pushing podspec."
 git add --all
 git commit -m "Prepare for release ${version}."
