@@ -1,10 +1,14 @@
 Releasing
 =========
 
-1. Update the version number in Segment-Branch.podspec.
-2. Update the version number add notes to CHANGELOG.md.
-3. Update the version number in update-segment.
-4. Run the script `update-segment` to update the pod, push to git, and release the version.
+Run the script `update-segment` to update the pod, push to git, and release the version.
+   You'll be prompted to:
+   1. Update the version number in Segment-Branch.podspec.
+   2. Update the version number add notes to CHANGELOG.md.
+   3. Update the version number in update-segment.
+
+   The script will then compile the example projects and then update and push the podspec
+   to the master CocoaPod repo.
 
 The script `update-segment` automates:
 
