@@ -9,10 +9,11 @@
 import UIKit
 
 func APInstanceFromNib(named: String, classX: AnyClass) -> AnyObject? {
-    let objects = Bundle.main.loadNibNamed(named, owner: nil, options: nil)
-    for object in objects as [AnyObject]! {
-        if object.isKind(of: classX) {
-            return object
+    if let objects = Bundle.main.loadNibNamed(named, owner: nil, options: nil) as [AnyObject]? {
+        for object in objects {
+            if object.isKind(of: classX) {
+                return object
+            }
         }
     }
     return nil

@@ -60,7 +60,7 @@ class AppData {
             } catch {
                 print("Can't read events JSON: \(error).")
             }
-            if let e = eventsObj as! Dictionary<String, AnyObject>! {
+            if let e = eventsObj as? Dictionary<String, AnyObject> {
                 self.segmentEvents = e
             }
         }

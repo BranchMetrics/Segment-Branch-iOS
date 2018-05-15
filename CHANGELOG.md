@@ -1,5 +1,10 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.11
+  * Updated the Branch SDK to version 0.25.x.
+  * Update the projects for Xcode 9.3.1.
+  * Remove some debug code in the Segment-Branch interface.
+
 - v0.1.10
   * Updated the Branch SDK to version 0.23.5.
 
