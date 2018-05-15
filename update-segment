@@ -13,9 +13,9 @@ cd "${scriptpath}"
 # Make sure the version, podspec, and CHANGELOG.md are all updated.
 version=0.1.11
 
-edit Segment-Branch.podspec
-edit CHANGELOG.md
-edit update-segment
+$EDITOR Segment-Branch.podspec
+$EDITOR CHANGELOG.md
+$EDITOR update-segment
 echo ">>> update-segment"
 echo ">>> Check that the version is updated in:"
 echo ">>> 'Segment-Branch.podspec', 'CHANGELOG.md', and 'update-segment'."
