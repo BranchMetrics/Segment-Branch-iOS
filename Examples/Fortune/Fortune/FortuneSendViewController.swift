@@ -94,7 +94,7 @@ class FortuneSendViewController: UIViewController, UITextViewDelegate, UIViewCon
         let scaleFilter = CIFilter(name: "CIAffineTransform")
         scaleFilter?.setValue(qrImage, forKey: "inputImage")
         scaleFilter?.setValue(transform, forKey: "inputTransform")
-        qrImage = scaleFilter?.outputImage as CIImage!
+        qrImage = (scaleFilter?.outputImage)!
 
         // Add a logo:
         UIGraphicsBeginImageContext(CGSize(width: scaleX, height: scaleX))

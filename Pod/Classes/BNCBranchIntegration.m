@@ -97,7 +97,7 @@
         if ([string compare:category options:NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch] == NSOrderedSame)
             return category;
     }
-    return /*nil*/ BNCProductCategoryBabyToddler;   // eDebug - test this.
+    return nil;
 }
 
 #define addStringField(field, name) { \

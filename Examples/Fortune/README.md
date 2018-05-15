@@ -18,3 +18,10 @@ The example code shows:
 ## Building & Running the Code
 
 Open the project wrokspace in Xcode and choose "Product > Run" from the main menu in Xcode.
+
+## Debugging Info
+
+```
+* Branch app_id: 486667108260795197 
+*    Branch Key: key_live_jlsOZdng507DcPObmp184mjjtzp8n95t
+```
