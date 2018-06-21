@@ -91,18 +91,14 @@ class FortuneViewController: UIViewController {
     }
 
     @objc func branchWillStartSession(notification: Notification) {
-        // Only show the waiting view if we've been opened by an URL tap:
-//        guard let url = notification.userInfo?[BranchURLKey] as? URL else { return }
-//        WaitingViewController.showWithMessage(
-//            message: "Opening\n\(url.absoluteString)",
-//            activityIndicator: true,
-//            disableTouches: true
-//        )
+        // This notification is called before Branch checks for a deeplink.
+        // You don't usually need to do anything with this notification.
+        //
+        // However some apps need a warning that a deep link may be handled
+        // so they can set up some UI in advance.
     }
 
     @objc func branchDidStartSession(notification: Notification) {
-//      WaitingViewController.hide()
-
         if let error = notification.userInfo?[BranchErrorKey] as? Error {
             if let url = notification.userInfo?[BranchURLKey] as? URL {
                 self.showAlert(

@@ -11,7 +11,7 @@ DEPENDENCIES:
   - Segment-Branch (from `../../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs:
+  https://github.com/cocoapods/specs.git:
     - Analytics
     - Branch
 
@@ -26,4 +26,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d99c63e88e20aad6d9f4c2ebd3ecbccf350dc1e8
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

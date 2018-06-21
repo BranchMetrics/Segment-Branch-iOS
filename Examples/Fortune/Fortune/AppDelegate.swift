@@ -11,15 +11,11 @@ import Analytics
 import Segment_Branch
 import Branch
 
-// Initialize Segment analytics
+// Initialize Segment analytics:
 var Analytics: SEGAnalytics = {
-    // edward Key "MJ0oYt38lzMKtdk5uPjXbpo7JOrlTJQP"
-    // devon Key "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm"
     let configuration = SEGAnalyticsConfiguration(writeKey: "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm")
     configuration.use(BNCBranchIntegrationFactory.instance())
     configuration.trackApplicationLifecycleEvents = true
-    // Too much data. Disabled:
-    // configuration.recordScreenViews = true
     SEGAnalytics.setup(with: configuration)
     return SEGAnalytics.shared()
 } ()
@@ -43,5 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Analytics.enable()
         
         return true
+    }
+
+    // Add this so Branch can handle deep links when the app is in the background:
+    @objc func application(
+        _ application: UIApplication,
+        continue userActivity: NSUserActivity,
+        restorationHandler: @escaping ([Any]?) -> Void
+    ) -> Bool {
+        return Branch.getInstance().continue(userActivity)
     }
 }

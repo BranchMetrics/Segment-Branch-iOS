@@ -47,10 +47,6 @@ class APFadeViewControllerTransition: NSObject, UIViewControllerAnimatedTransiti
         snapshot.contentMode = .scaleAspectFit
         snapshot.backgroundColor = .white
 
-        //snapshot.alpha = 0.10
-        //snapshot.layer.borderColor = UIColor.red.cgColor
-        //snapshot.layer.borderWidth = 4.0
-
         UIView.animate(
             withDuration: duration,
             delay: 0.0,
