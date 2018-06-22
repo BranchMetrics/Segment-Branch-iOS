@@ -22,20 +22,35 @@ pod "Segment-Branch"
 
 After adding the dependency, you must register the integration with our SDK.  To do this, import the Branch integration in your `AppDelegate`:
 
-```
+```objc
 #import <Segment-Branch/BNCBranchIntegrationFactory.h>
 
 ```
 
-And add the following lines:
 
-```
+And add the following lines in your `application:didFinishLaunchingWithOptions:` method:
+
+```objc
+
 NSString *const SEGMENT_WRITE_KEY = @" ... ";
 SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:SEGMENT_WRITE_KEY];
 
 [config use:[BNCBranchIntegrationFactory instance]];
 
 [SEGAnalytics setupWithConfiguration:config];
+
+```
+
+Finally, in your `application:continueUserActivity:restorationHandler:` method, add:
+
+```objc
+
+- (BOOL)application:(UIApplication *)application
+continueUserActivity:(NSUserActivity *)userActivity
+ restorationHandler:(void (^)(NSArray *))restorationHandler
+{
+    return [[Branch getInstance] continueUserActivity:userActivity];
+}
 
 ```
 
