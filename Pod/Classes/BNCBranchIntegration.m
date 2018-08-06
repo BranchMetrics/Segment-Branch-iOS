@@ -8,7 +8,12 @@
 
 #import "BNCBranchIntegration.h"
 #import <Branch/Branch.h>
+#import <Branch/BNCThreads.h>
 #import <Analytics/SEGAnalyticsUtils.h>
+
+@interface Branch (SegmentBranch)
+- (void) initSessionIfNeededAndNotInProgress;
+@end
 
 @implementation BNCBranchIntegration
 
@@ -16,7 +21,10 @@
     if (self = [super init]) {
         self.settings = settings ?: @{};
         NSString *branchKey = [self.settings objectForKey:@"branch_key"];
-        [Branch getInstance:branchKey];
+        [Branch setBranchKey:branchKey];
+        BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
+            [[Branch getInstance] initSessionIfNeededAndNotInProgress];
+        });
     }
     return self;
 }

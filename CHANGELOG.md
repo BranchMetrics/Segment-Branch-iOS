@@ -1,5 +1,8 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.13
+  * Prevent double opens from being reported to analytics.
+
 - v0.1.12
   * Updated the Branch SDK to version 0.25.x.
 
