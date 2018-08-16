@@ -9,6 +9,8 @@
 #import "BNCBranchIntegration.h"
 #import <Branch/Branch.h>
 #import <Branch/BNCThreads.h>
+#import <Branch/BNCPreferenceHelper.h>
+#import <Analytics/SEGAnalytics.h>
 #import <Analytics/SEGAnalyticsUtils.h>
 
 @interface Branch (SegmentBranch)
@@ -18,14 +20,18 @@
 @implementation BNCBranchIntegration
 
 - (instancetype)initWithSettings:(NSDictionary *)settings {
-    if (self = [super init]) {
-        self.settings = settings ?: @{};
-        NSString *branchKey = [self.settings objectForKey:@"branch_key"];
-        [Branch setBranchKey:branchKey];
-        BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
-            [[Branch getInstance] initSessionIfNeededAndNotInProgress];
-        });
-    }
+    self = [super init];
+    if (!self) return self;
+    self.settings = settings ?: @{};
+    NSString *branchKey = [self.settings objectForKey:@"branch_key"];
+    [Branch setBranchKey:branchKey];
+    NSString*segmentID = [[SEGAnalytics sharedAnalytics] getAnonymousId];
+    if (segmentID.length)
+        [[BNCPreferenceHelper preferenceHelper] setRequestMetadataKey:@"$segment_anonymous_id" value:segmentID];
+    BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
+        [[Branch getInstance] initSessionIfNeededAndNotInProgress];
+    });
+
     return self;
 }
 

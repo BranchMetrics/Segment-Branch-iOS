@@ -1,5 +1,8 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.14
+  * Automatically add the `$segment_anonymous_id` to open/install requests and event logging.
+
 - v0.1.13
   * Prevent double opens from being reported to analytics.
 
