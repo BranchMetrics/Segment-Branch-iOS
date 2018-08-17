@@ -55,7 +55,7 @@ cd $homedir
 
 echo ">>> Committing to git and pushing podspec."
 git add --all
-git commit -m "Prepare for release ${version}."
+git commit -m "Prepare for release ${version}."  --allow-empty
 git tag -a "$version" -m "Version ${version}"
 git push && git push --tags
 pod trunk push Segment-Branch.podspec --allow-warnings
