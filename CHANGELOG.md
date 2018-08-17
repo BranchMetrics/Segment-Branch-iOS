@@ -1,5 +1,8 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.15
+  * Fixed an issue where the Branch integration was inadvertently stripping values from Segment events.
+
 - v0.1.14
   * Automatically add the `$segment_anonymous_id` to open/install requests and event logging.
 
