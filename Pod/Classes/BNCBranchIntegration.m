@@ -31,7 +31,6 @@
     BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
         [[Branch getInstance] initSessionIfNeededAndNotInProgress];
     });
-
     return self;
 }
 
@@ -212,10 +211,24 @@
 
 + (BranchEvent*) branchEventFromSegmentEvent:(NSString*)eventName
                                   dictionary:(NSDictionary*)immutableDictionary {
-    NSMutableDictionary *dictionary = [NSMutableDictionary dictionaryWithDictionary:immutableDictionary];
+    // Make a deep copy of the event dictionary:
+    NSError*error = nil;
+    NSMutableDictionary*dictionary = nil;
+    NSData*data = [NSPropertyListSerialization dataWithPropertyList:immutableDictionary
+        format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
+    if (error || data == nil) {
+        SEGLog(@"[Branch Event] Can't serialize event parameters: %@.", error);
+    } else {
+        error = nil;
+        dictionary = [NSPropertyListSerialization propertyListWithData:data
+            options:NSPropertyListMutableContainersAndLeaves format:NULL error:&error];
+        if (error) SEGLog(@"[Branch Event] Can't de-serialize event parameters: %@.", error);
+    }
+
+    // Make a BranchEvent from the passed dictionary:
     NSString *branchEvent = [self.class branchEventFromSegmentEventName:eventName];
     BranchEvent *event = [[BranchEvent alloc] initWithName:branchEvent];
-
+    if (!dictionary) return event;
 
     /* BranchEvent fields:
 
