@@ -49,4 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         return Branch.getInstance().continue(userActivity)
     }
+
+    @objc func application(_ app: UIApplication,
+        open url: URL,
+        options: [UIApplicationOpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        return Branch.getInstance().application(app, open:url, options:options)
+    }
 }
