@@ -47,13 +47,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         continue userActivity: NSUserActivity,
         restorationHandler: @escaping ([Any]?) -> Void
     ) -> Bool {
-        return Branch.getInstance().continue(userActivity)
+        Analytics.continue(userActivity)
+        return true
     }
 
+    // Add this so Branch can handle app schemes like `myapp://open?link...`:
     @objc func application(_ app: UIApplication,
         open url: URL,
         options: [UIApplicationOpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-        return Branch.getInstance().application(app, open:url, options:options)
+        Analytics.open(url, options: options)
+        return true
     }
 }

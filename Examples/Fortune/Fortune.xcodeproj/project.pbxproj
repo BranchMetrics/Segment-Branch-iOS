@@ -259,7 +259,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Fortune/Pods-Fortune-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Fortune/Pods-Fortune-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Analytics/Analytics.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/Segment-Branch/Segment_Branch.framework",
@@ -272,7 +272,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Fortune/Pods-Fortune-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Fortune/Pods-Fortune-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BAB01A5976CB33B36CD8CC41 /* [CP] Check Pods Manifest.lock */ = {

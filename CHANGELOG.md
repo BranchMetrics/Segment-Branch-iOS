@@ -1,5 +1,9 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.16
+  * Updated the documentation.
+  * Updated the 'Fortune' example with docs and Segment calls.
+
 - v0.1.15
   * Fixed an issue where the Branch integration was inadvertently stripping values from Segment events.
 

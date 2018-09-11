@@ -215,7 +215,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Segment-Branch-Example/Pods-Segment-Branch-Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Segment-Branch-Example/Pods-Segment-Branch-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Analytics/Analytics.framework",
 				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/Segment-Branch/Segment_Branch.framework",
@@ -228,7 +228,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Segment-Branch-Example/Pods-Segment-Branch-Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Segment-Branch-Example/Pods-Segment-Branch-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ED44A7717A03FED2F5F5303D /* [CP] Check Pods Manifest.lock */ = {
