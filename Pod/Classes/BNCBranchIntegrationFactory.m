@@ -26,7 +26,7 @@
 }
 
 - (id<SEGIntegration>)createWithSettings:(NSDictionary *)settings forAnalytics:(SEGAnalytics *)analytics {
-    return [[BNCBranchIntegration alloc] initWithSettings:settings];
+    return [[BNCBranchIntegration alloc] initWithSettings:settings analytics:analytics];
 }
 
 - (NSString *)key {
