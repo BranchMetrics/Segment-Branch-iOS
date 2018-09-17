@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BNCBranchIntegration : NSObject<SEGIntegration>
-- (instancetype)initWithSettings:(NSDictionary *)settings NS_SWIFT_NAME(init(setttings:));
+- (instancetype)initWithSettings:(NSDictionary *)settings analytics:(SEGAnalytics *)analytics NS_SWIFT_NAME(init(setttings:analytics:));
 @property(nonatomic, strong) NSDictionary *settings;
 @end
 

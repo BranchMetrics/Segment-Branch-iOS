@@ -19,13 +19,13 @@
 
 @implementation BNCBranchIntegration
 
-- (instancetype)initWithSettings:(NSDictionary *)settings {
+- (instancetype)initWithSettings:(NSDictionary *)settings analytics:(SEGAnalytics *)analytics {
     self = [super init];
     if (!self) return self;
     self.settings = settings ?: @{};
     NSString *branchKey = [self.settings objectForKey:@"branch_key"];
     [Branch setBranchKey:branchKey];
-    NSString*segmentID = [[SEGAnalytics sharedAnalytics] getAnonymousId];
+    NSString*segmentID = [analytics getAnonymousId];
     if (segmentID.length)
         [[BNCPreferenceHelper preferenceHelper] setRequestMetadataKey:@"$segment_anonymous_id" value:segmentID];
     BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
