@@ -1,5 +1,8 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.17
+  * Use the passed Segment instance in the Segment-Branch kit rather than the global one.
+
 - v0.1.16
   * Updated the documentation.
   * Updated the 'Fortune' example with docs and Segment calls.
