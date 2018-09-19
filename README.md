@@ -1,6 +1,6 @@
+[![Platform](https://img.shields.io/cocoapods/p/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
 [![Version](https://img.shields.io/cocoapods/v/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
 [![License](https://img.shields.io/cocoapods/l/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
-[![Platform](https://img.shields.io/cocoapods/p/Segment-Branch.svg?style=flat)](http://cocoapods.org/pods/Segment-Branch)
 
 # Segment-Branch
 
@@ -8,136 +8,168 @@ Easily add Branch deep linking and analytics to your Segment-based app with this
 
 New to Branch or deep linking? Start here: [All about Branch deep linking.](https://branch.io/what-is-deep-linking/)
 
-## Examples
+The Segment-Branch integration adds:
+
+* Deep linking capabilities to your app.
+* Segment events are automatically tracked and analyzed in the Branch dashboard too, so you can measure the effectiveness of your deep linked content and marketing campaigns.
+* Use other Branch features, like referrals or automatic app content listing in Spotlight.
+
+### Questions?
+
+* Segment support: [Segment Support](https://segment.com/contact)
+* Branch Support: [Branch support](https://support.branch.io/support/home)
+
+
+### Examples
 
 See the [Fortune Example App](https://github.com/BranchMetrics/Segment-Branch-iOS/tree/master/Examples/Fortune)
 for an example of using the Segment-Branch SDK in your app.
 
 ## Installation and Usage Details
 
-The installation has seven steps:
+The installation has five steps:
 
 1. Add the Segment-Branch integration to your CocoaPod pod file.
-2. Tell Segment to use the Branch integration when your application launches.
-3. Pass along URLs to Segment in your `application:continueUserActivity:restorationHandler:` method.
-4. Pass along URLs to Segment in your `application:openURL:options:` method.
-5. Configure your app in the Branch dashboard: [Branch Dashboard.](https://docs.branch.io/pages/dashboard/integrate/)
-6. Configure your app to handle universal links: [Universal Links.](https://docs.branch.io/pages/apps/ios/#configure-associated-domains)
-7. Configure your app to handle app schemes: [App Schemes.](https://docs.branch.io/pages/apps/ios/#configure-infoplist)
+2. Add some code to your AppDelegate:
+   - Tell Segment to use the Branch integration when your application launches.
+   - Pass along URLs to Segment in your `application:continueUserActivity:restorationHandler:` method.
+   - Pass along URLs to Segment in your `application:openURL:options:` method.
+3. Configure your app in the Branch dashboard: [Branch Dashboard.](https://docs.branch.io/pages/dashboard/integrate/)
+4. Configure your app to handle universal URLs: [Universal Links.](https://docs.branch.io/pages/apps/ios/#configure-associated-domains)
+5. Configure your app to handle app scheme URLs: [App Schemes.](https://docs.branch.io/pages/apps/ios/#configure-infoplist)
 
 
-### Step 1: Add the Segment-Branch integration to your CocoaPod pod file
+## Step 1: Add the Segment-Branch integration to your CocoaPod pod file
 
 To install the Segment-Branch integration, add this line to your [CocoaPods](http://cocoapods.org) `Podfile`:
 
 ```ruby
-pod "Segment-Branch"
+pod 'Segment-Branch'
+```
+
+so that your pod file looks something like:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+use_frameworks!
+
+target 'Fortune' do
+  pod 'Segment-Branch'
+end
 ```
 
 Then run `pod install` from the command line to install the new pod.
 
-### Step 2: Tell Segment to use the Branch integration when your application launches
+## Step 2: Add some code to your AppDelegate
 
-Register the Branch integration with Segment. You'll need to import the Branch integration in your
-`AppDelegate` and add the following lines in your `application:didFinishLaunchingWithOptions:` method:
+Update your app delegate to tell Segment to use Branch, then add some code to pass deep link notifications to Segment which will in turn pass them to the Branch SDK.
 
 **Objective-C**
 
 ```objc
 #import <Segment/Analytics>
 #import <Segment-Branch/BNCBranchIntegrationFactory.h>
-.
-.
-.
+
+...
+
+// Add Branch to your Segment configuration and set a deep link handler block:
 - (BOOL)application:(UIApplication *)application
         didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     SEGAnalyticsConfiguration *config = [SEGAnalyticsConfiguration configurationWithWriteKey:@"YOUR_WRITE_KEY"];
+
+    // Use Branch:
     [config use:[BNCBranchIntegrationFactory instance]];
     [SEGAnalytics setupWithConfiguration:config];
+
+    // Add a handler for Branch deep links:
+    [Branch getInstance].sessionInitWithParamsCallback = ^ (NSDictionary *params, NSError *error) {
+        if (!error && [params[@"+clicked_branch_link"] boolValue]) {
+            // We got a deep link! Handle it:
+            ...
+        }
+    }
 }
-```
 
-**Swift**
-
-```
-import Analytics
-import Segment_Branch
-.
-.
-.
-    func application(_ application: UIApplication,
-            didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey: Any]?
-        ) -> Bool {
-    let configuration = SEGAnalyticsConfiguration(writeKey: "YOUR_WRITE_KEY")
-    configuration.use(BNCBranchIntegrationFactory.instance())
-    SEGAnalytics.setup(with: configuration)
-}
-```
-
-### Step 3: Pass along URLs to Segment in your `continueUserActivity:` method
-
-In your `application:continueUserActivity:restorationHandler:` method, add:
-
-**Object-C**
-
-```objc
+// Handle universal links: Pass your user activity to Segment in your `continueUserActivity:` method.
 - (BOOL)application:(UIApplication *)application
 continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray *))restorationHandler {
     [[SEGAnalytics shared] continueUserActivity:userActivity];
     return YES;
 }
-```
 
-**Swift**
-
-```swift
-@objc func application(
-    _ application: UIApplication,
-    continue userActivity: NSUserActivity,
-    restorationHandler: @escaping ([Any]?) -> Void
-) -> Bool {
-    SEGAnalytics.shared().continue(userActivity)
-    return true
-}
-```
-
-### Step 4: Pass along URLs to Segment in your `openURL:` method
-
-In your `application:openURL:options:` method, add:
-
-**Objective-C**
-
-```
+// Handle scheme links: Pass the URL to Segment in your `openURL:` method.
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     [[SEGAnalytics shared] openURL:url options:options];
     return YES;
 }
+
 ```
 
 **Swift**
 
 ```swift
-// Add this so Branch can handle app schemes like `myapp://open?link...`:
-@objc func application(_ app: UIApplication,
-    open url: URL,
-    options: [UIApplicationOpenURLOptionsKey : Any] = [:]
-) -> Bool {
-    SEGAnalytics.shared().open(url, options: options)
-    return true
-}
+import Analytics
+import Segment_Branch
+
+...
+
+class AppDelegate ...
+
+    // Add Branch to your Segment configuration and set a deep link handler block:
+    func application(_ application: UIApplication,
+            didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey: Any]?
+        ) -> Bool {
+    let configuration = SEGAnalyticsConfiguration(writeKey: "YOUR_WRITE_KEY")
+    configuration.use(BNCBranchIntegrationFactory.instance())
+    SEGAnalytics.setup(with: configuration)
+
+    // Add a deep link handler:
+    Branch.getInstance().sessionInitWithParamsCallback = {
+        (params: [AnyHashable: Any]?, error: Error?) -> Void in
+            if let error = error {
+                // An error occurred
+            }
+            else
+            if let deepLinked:Bool = params?["+clicked_branch_link"] as? Bool, deepLinked {
+                // A deep link happened!  Handle it...
+            }
+        }
+    }
+
+    // Handle universal links: Pass your user activity to Segment in your `continueUserActivity:` method.
+    @objc func application(
+        _ application: UIApplication,
+        continue userActivity: NSUserActivity,
+        restorationHandler: @escaping ([Any]?) -> Void
+    ) -> Bool {
+        SEGAnalytics.shared().continue(userActivity)
+        return true
+    }
+
+    // Add this so Branch can handle app schemes like `myapp://open?link...`:
+    @objc func application(_ app: UIApplication,
+        open url: URL,
+        options: [UIApplicationOpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        SEGAnalytics.shared().open(url, options: options)
+        return true
+    }
+
 ```
 
-### Steps 5 through 7
+## Steps 3 through 5
 
 Refer to the Branch documentation for setting up the Branch dashboard and configuring your app
-to accept URLS from iOS.
+to accept URLs from iOS.
 
-5. Configure your app in the Branch dashboard: [Branch Dashboard.](https://docs.branch.io/pages/dashboard/integrate/)
-6. Configure your app to handle universal links: [Universal Links.](https://docs.branch.io/pages/apps/ios/#configure-associated-domains)
-7. Configure your app to handle app schemes: [App Schemes.](https://docs.branch.io/pages/apps/ios/#configure-infoplist)
+3. Configure your app in the Branch dashboard: [Branch Dashboard.](https://docs.branch.io/pages/dashboard/integrate/)
+4. Configure your app to handle universal links: [Universal Links.](https://docs.branch.io/pages/apps/ios/#configure-associated-domains)
+5. Configure your app to handle app schemes: [App Schemes.](https://docs.branch.io/pages/apps/ios/#configure-infoplist)
 
 
 ## Author
