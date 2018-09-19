@@ -11,7 +11,8 @@ New to Branch or deep linking? Start here: [All about Branch deep linking.](http
 The Segment-Branch integration adds:
 
 * Deep linking capabilities to your app.
-* Segment events are automatically tracked and analyzed in the Branch dashboard too, so you can measure the effectiveness of your deep linked content and marketing campaigns.
+* Segment events are automatically tracked and analyzed in the Branch dashboard too, 
+  so you can measure the effectiveness of your deep linked content and marketing campaigns.
 * Use other Branch features, like referrals or automatic app content listing in Spotlight.
 
 ### Questions?
@@ -22,7 +23,7 @@ The Segment-Branch integration adds:
 
 ### Examples
 
-See the [Fortune Example App](https://github.com/BranchMetrics/Segment-Branch-iOS/tree/master/Examples/Fortune)
+See the [Fortune Example App](https://github.com/BranchMetrics/Segment-Branch-iOS/tree/master/Examples/Fortune#fortune-example)
 for an example of using the Segment-Branch SDK in your app.
 
 ## Installation and Usage Details
