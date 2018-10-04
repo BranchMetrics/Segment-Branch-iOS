@@ -85,12 +85,10 @@ Update your app delegate to tell Segment to use Branch, then add some code to pa
     [SEGAnalytics setupWithConfiguration:config];
 
     // Add a handler for Branch deep links:
-    [Branch getInstance].sessionInitWithParamsCallback = ^ (NSDictionary *params, NSError *error) {
-        if (!error && [params[@"+clicked_branch_link"] boolValue]) {
-            // We got a deep link! Handle it:
-            ...
-        }
-    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(branchDidStartSession:)
+                                                 name:BranchDidStartSessionNotification
+                                               object:nil];
 }
 
 // Handle universal links: Pass your user activity to Segment in your `continueUserActivity:` method.
@@ -107,6 +105,19 @@ continueUserActivity:(NSUserActivity *)userActivity
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     [[SEGAnalytics shared] openURL:url options:options];
     return YES;
+}
+
+// Add this to read the deep link data when it is received
+- (void)branchDidStartSession:(NSNotification *) notification {
+    if ([[notification userInfo] objectForKey:BranchErrorKey] != nil) {
+        // An error occurred
+        return;
+    }
+    BranchLinkProperties linkProps = [[notification userInfo] objectForKey:BranchLinkPropertiesKey];
+    if (linkProps != nil) {
+        // deep link with data
+    }
+    return;
 }
 
 ```
@@ -129,18 +140,13 @@ class AppDelegate ...
     configuration.use(BNCBranchIntegrationFactory.instance())
     SEGAnalytics.setup(with: configuration)
 
-    // Add a deep link handler:
-    Branch.getInstance().sessionInitWithParamsCallback = {
-        (params: [AnyHashable: Any]?, error: Error?) -> Void in
-            if let error = error {
-                // An error occurred
-            }
-            else
-            if let deepLinked:Bool = params?["+clicked_branch_link"] as? Bool, deepLinked {
-                // A deep link happened!  Handle it...
-            }
-        }
-    }
+    // Register deep link notification handler:
+    NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(branchDidStartSession(notification:)),
+            name: NSNotification.Name.BranchDidStartSession,
+            object: nil
+    )
 
     // Handle universal links: Pass your user activity to Segment in your `continueUserActivity:` method.
     @objc func application(
@@ -161,6 +167,18 @@ class AppDelegate ...
         return true
     }
 
+    // Add this to read the deep link data when it is received
+    @objc func branchDidStartSession(notification: Notification) {
+        if (notification.userInfo?[BranchErrorKey] as? Error) != nil {
+            // An error occurred
+            return
+        }
+        if let linkprops = notification.userInfo?[BranchLinkPropertiesKey] as? BranchLinkProperties {
+            let deepLinkData = linkprops.controlParams as NSDictionary?
+            // handle your deep link
+        }
+        return
+    }
 ```
 
 ## Steps 3 through 5
