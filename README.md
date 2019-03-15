@@ -143,7 +143,7 @@ class AppDelegate ...
     // Register deep link notification handler:
     NotificationCenter.default.addObserver(
             self,
-            selector: #selector(branchDidStartSession(notification:)),
+            selector: #selector(branchDidStartSession(notification:),
             name: NSNotification.Name.BranchDidStartSession,
             object: nil
     )
