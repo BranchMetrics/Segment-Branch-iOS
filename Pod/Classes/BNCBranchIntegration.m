@@ -8,7 +8,6 @@
 
 #import "BNCBranchIntegration.h"
 #import <Branch/Branch.h>
-#import <Branch/BNCThreads.h>
 #import <Branch/BNCPreferenceHelper.h>
 #import <Analytics/SEGAnalytics.h>
 #import <Analytics/SEGAnalyticsUtils.h>
@@ -26,9 +25,10 @@
     NSString *branchKey = [self.settings objectForKey:@"branch_key"];
     [Branch setBranchKey:branchKey];
     NSString*segmentID = [analytics getAnonymousId];
-    if (segmentID.length)
+    if (segmentID.length) {
         [[BNCPreferenceHelper preferenceHelper] setRequestMetadataKey:@"$segment_anonymous_id" value:segmentID];
-    BNCAfterSecondsPerformBlockOnMainThread(0.20, ^{
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.20 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [[Branch getInstance] initSessionIfNeededAndNotInProgress];
     });
     return self;
@@ -105,7 +105,7 @@
         BNCProductCategoryToysGames,
         BNCProductCategoryVehiclesParts,
     ];
-    
+
     for (BNCProductCategory category in categories) {
         if ([string compare:category options:NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch] == NSOrderedSame)
             return category;
@@ -161,7 +161,7 @@
 
     BranchUniversalObject *object = [[BranchUniversalObject alloc] init];
     object.contentMetadata.contentSchema = BranchContentSchemaCommerceProduct;
-    
+
     addStringField(object.canonicalIdentifier, product_id);
     addStringField(object.contentMetadata.sku, sku);
     BNCProductCategory category = [self categoryFromString:dictionary[@"category"]];
@@ -255,7 +255,7 @@
     "coupon": "hasbros",
     "currency": "USD",
     */
-    
+
     addStringField(event.transactionID, order_id);
     addStringField(event.currency, currency);
     addDecimalField(event.revenue, revenue);
