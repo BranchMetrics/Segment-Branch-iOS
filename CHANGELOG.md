@@ -1,5 +1,9 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.18
+  * Remove dependency on BNCThreads.
+  * Pin to minor version in podspec.
+
 - v0.1.17
   * Use the passed Segment instance in the Segment-Branch kit rather than the global one.
 

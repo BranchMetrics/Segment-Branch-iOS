@@ -17,7 +17,7 @@ var Analytics: SEGAnalytics = {
     configuration.use(BNCBranchIntegrationFactory.instance())
     configuration.trackApplicationLifecycleEvents = true
     SEGAnalytics.setup(with: configuration)
-    return SEGAnalytics.shared()
+    return SEGAnalytics.shared()!
 } ()
 
 @UIApplicationMain
