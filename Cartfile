@@ -1,2 +1,2 @@
 github "segmentio/analytics-ios"
-github "evandcoleman/ios-branch-deep-linking-attribution" "edc-add-public-header-carthage"
+github "BranchMetrics/ios-branch-deep-linking-attribution"
