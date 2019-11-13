@@ -1,5 +1,9 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.19
+  * Update to Branch iOS SDK 0.30.x
+  * Add Carthage support
+
 - v0.1.18
   * Remove dependency on BNCThreads.
   * Pin to minor version in podspec.
