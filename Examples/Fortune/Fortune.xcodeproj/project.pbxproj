@@ -83,6 +83,7 @@
 		AC82B3C46524DFE4413D237A /* Pods-Fortune.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fortune.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fortune/Pods-Fortune.release.xcconfig"; sourceTree = "<group>"; };
 		BB3C167ABDA2BEF39A727D83 /* Pods_Fortune.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fortune.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD1B4B16E0C1F91754DFDA87 /* Pods-Fortune.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fortune.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fortune/Pods-Fortune.debug.xcconfig"; sourceTree = "<group>"; };
+		E3C8947F23A458B30003C9AA /* Fortune-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fortune-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +148,7 @@
 				4D193B4E1F858D7B00228824 /* UIViewController+Fortune.swift */,
 				4D8B77731F8462C200EFD3FF /* WaitingViewController.swift */,
 				4D8B77721F8462C200EFD3FF /* WaitingViewController.xib */,
+				E3C8947F23A458B30003C9AA /* Fortune-Bridging-Header.h */,
 			);
 			path = Fortune;
 			sourceTree = "<group>";
@@ -206,6 +208,7 @@
 				TargetAttributes = {
 					4D8B775A1F8442D100EFD3FF = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
@@ -455,6 +458,7 @@
 			baseConfigurationReference = CD1B4B16E0C1F91754DFDA87 /* Pods-Fortune.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Fortune/Fortune.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R63EM248DP;
@@ -462,6 +466,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.branch.SegmentFortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fortune/Fortune-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,6 +478,7 @@
 			baseConfigurationReference = AC82B3C46524DFE4413D237A /* Pods-Fortune.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Fortune/Fortune.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R63EM248DP;
@@ -479,6 +486,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.branch.SegmentFortune;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fortune/Fortune-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
