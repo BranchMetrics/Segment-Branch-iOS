@@ -1,17 +1,17 @@
 PODS:
-  - Analytics (3.7.0)
-  - Branch (0.31.0):
-    - Branch/Core (= 0.31.0)
-  - Branch/Core (0.31.0)
-  - Segment-Branch (0.1.19):
+  - Analytics (3.7.1)
+  - Branch (0.33.0):
+    - Branch/Core (= 0.33.0)
+  - Branch/Core (0.33.0)
+  - Segment-Branch (0.1.21):
     - Analytics
-    - Branch (~> 0.31.0)
+    - Branch (~> 0.33.0)
 
 DEPENDENCIES:
   - Segment-Branch (from `../../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Analytics
     - Branch
 
@@ -20,10 +20,10 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  Analytics: 77fd5fb102a4a5eedafa2c2b0245ceb7b7c15e45
-  Branch: d2e1611afa9ea9aa36fa1996df7f38ca2c3eb03e
-  Segment-Branch: 5e4417c60dfe3e637dfe0e3bf43d29cd3bbabe3e
+  Analytics: f82f3cd6d3c8fbfd76ce25773199576656981a4a
+  Branch: 94b09cb31000284730da2e29a809747b57b8405c
+  Segment-Branch: 2b916caecb10bba7248f85ce2f01f97836bc2d3e
 
 PODFILE CHECKSUM: 78184f7517c6ccb70de817ffff6b14b6aa2be09c
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.9.1
