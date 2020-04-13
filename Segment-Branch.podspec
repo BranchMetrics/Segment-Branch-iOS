@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "Segment-Branch"
-  s.version          = "0.1.21"
+  s.version          = "0.1.22"
   s.summary          = "Branch Integration for Analytics for iOS."
 
   s.description      = <<-DESC

@@ -3,7 +3,7 @@ PODS:
   - Branch (0.33.0):
     - Branch/Core (= 0.33.0)
   - Branch/Core (0.33.0)
-  - Segment-Branch (0.1.21):
+  - Segment-Branch (0.1.22):
     - Analytics
     - Branch (~> 0.33.0)
 
@@ -22,7 +22,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Analytics: f82f3cd6d3c8fbfd76ce25773199576656981a4a
   Branch: 94b09cb31000284730da2e29a809747b57b8405c
-  Segment-Branch: 2b916caecb10bba7248f85ce2f01f97836bc2d3e
+  Segment-Branch: f255ba1354f6aa1bc8654d450b3b933380f2558d
 
 PODFILE CHECKSUM: d99c63e88e20aad6d9f4c2ebd3ecbccf350dc1e8
 
