@@ -11,7 +11,7 @@ scriptpath=$(cd "$(dirname "${scriptpath}")" && pwd)
 cd "${scriptpath}"
 
 # Make sure the version, podspec, and CHANGELOG.md are all updated.
-version=0.1.22
+version=0.1.23
 
 $EDITOR Segment-Branch.podspec
 $EDITOR CHANGELOG.md

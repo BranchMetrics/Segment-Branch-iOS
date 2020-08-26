@@ -11,10 +11,10 @@ import Analytics
 import Branch
 
 class EventViewController: UIViewController {
-    @IBOutlet weak var segmentActionButton: UIButton!
-    @IBOutlet weak var eventBodyTextView: UITextView!
-    @IBOutlet weak var eventNameLabel: UILabel!
-    @IBOutlet weak var menuView: APDropDownMenu?
+    @IBOutlet var segmentActionButton: UIButton!
+    @IBOutlet var eventBodyTextView: UITextView!
+    @IBOutlet var eventNameLabel: UILabel!
+    @IBOutlet var menuView: APDropDownMenu?
 
     private
     var keyboardEditor: APKeyboardEditor?
@@ -54,7 +54,7 @@ class EventViewController: UIViewController {
                     self.promptForIdentity(completion: { (name) in
                         if let name = name, name.count > 0 {
                             self.eventBodyTextView.text = "Identity: \(name)"
-                            Analytics.identify(name)
+                            MyAnalytics.identify(name)
                         } else {
                             self.eventNameLabel.text = ""
                             self.eventBodyTextView.text = ""
@@ -64,7 +64,7 @@ class EventViewController: UIViewController {
                     self.promptForIdentity(completion: {(name) in
                         if let name = name, name.count > 0 {
                             self.eventBodyTextView.text = "Alias: \(name)"
-                            Analytics.alias(name)
+                            MyAnalytics.alias(name)
                         } else {
                             self.eventNameLabel.text = ""
                             self.eventBodyTextView.text = ""
@@ -72,13 +72,13 @@ class EventViewController: UIViewController {
                     })
                 case 2:
                     self.eventBodyTextView.text = "Reset"
-                    Analytics.reset()
+                    MyAnalytics.reset()
                 case 3:
                     self.trackSegmentEvent()
                 case 4:
                     let name = "Segment Screen Test"
                     self.eventBodyTextView.text = "Screen: \(name)"
-                    Analytics.screen(name)
+                    MyAnalytics.screen(name)
                 default:
                     break
                 }
@@ -121,7 +121,7 @@ class EventViewController: UIViewController {
     func sendSegmentEvent(selection: String?) {
         self.selectSegmentEvent(selection: selection)
         if let selection: String = selection, let body = AppData.shared.segmentEvents[selection]  {
-            Analytics.track(selection, properties: body as? [String : Any])
+            MyAnalytics.track(selection, properties: body as? [String : Any])
         }
     }
 }

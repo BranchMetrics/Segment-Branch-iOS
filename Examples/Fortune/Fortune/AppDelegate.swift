@@ -12,12 +12,13 @@ import Segment_Branch
 import Branch
 
 // Initialize Segment analytics:
-var Analytics: SEGAnalytics = {
-    let configuration = SEGAnalyticsConfiguration(writeKey: "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm")
+var MyAnalytics: Analytics = {
+    let configuration = AnalyticsConfiguration(writeKey: "6ViWbAkMJGarxYDMiDkrn2BQoeYqrbIm")
     configuration.use(BNCBranchIntegrationFactory.instance())
     configuration.trackApplicationLifecycleEvents = true
-    SEGAnalytics.setup(with: configuration)
-    return SEGAnalytics.shared()!
+    
+    Analytics.setup(with: configuration)
+    return Analytics.shared()
 } ()
 
 @UIApplicationMain
@@ -33,10 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Turn on all the debug output for testing:
         BNCLogSetDisplayLevel(.all)
-        SEGAnalytics.debug(true)
+        //Analytics.Analytics.debug(true)
 
         // Initialize and enable analytics:
-        Analytics.enable()
+        MyAnalytics.enable()
         
         return true
     }
@@ -47,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         continue userActivity: NSUserActivity,
         restorationHandler: @escaping ([Any]?) -> Void
     ) -> Bool {
-        Analytics.continue(userActivity)
+        MyAnalytics.continue(userActivity)
         return true
     }
 
@@ -56,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         open url: URL,
         options: [UIApplicationOpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-        Analytics.open(url, options: options)
+        MyAnalytics.open(url, options: options)
         return true
     }
 }
