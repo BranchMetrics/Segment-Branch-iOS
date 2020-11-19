@@ -7,7 +7,7 @@
 //
 
 #import "BNCAppDelegate.h"
-#import <Analytics/SEGAnalytics.h>
+#import <Segment/SEGAnalytics.h>
 #import "BNCBranchIntegrationFactory.h" // Import this file.
 
 @implementation BNCAppDelegate
