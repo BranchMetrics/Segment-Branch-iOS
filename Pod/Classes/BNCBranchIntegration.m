@@ -9,8 +9,8 @@
 #import "BNCBranchIntegration.h"
 #import <Branch/Branch.h>
 #import <Branch/BNCPreferenceHelper.h>
-#import <Analytics/SEGAnalytics.h>
-#import <Analytics/SEGAnalyticsUtils.h>
+#import <Segment/SEGAnalytics.h>
+#import <Segment/SEGAnalyticsUtils.h>
 
 
 @implementation BNCBranchIntegration
