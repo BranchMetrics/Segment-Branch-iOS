@@ -21,7 +21,7 @@
     self.settings = settings ?: @{};
     NSString *branchKey = [self.settings objectForKey:@"branch_key"];
     [Branch setBranchKey:branchKey];
-    [[Branch getInstance] registerPluginName:@"Segment - iOS" version:@"0.1.22"];
+    [[Branch getInstance] registerPluginName:@"Segment - iOS" version:@"0.1.25"];
     
     [[Branch getInstance] dispatchToIsolationQueue:^{
         NSString *segmentID = [analytics getAnonymousId];

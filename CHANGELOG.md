@@ -1,5 +1,9 @@
 # Branch-Segment-iOS Change Log
 
+- v0.1.25
+  * Update to Branch iOS SDK 1.39.x
+  * Note, we recommend using data export integration instead.
+
 - v0.1.24
   * Update to Branch iOS SDK 0.36.x
   * Note, we recommend using data export integration instead.
