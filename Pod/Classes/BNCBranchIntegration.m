@@ -7,10 +7,15 @@
 //
 
 #import "BNCBranchIntegration.h"
+#ifdef SWIFT_PACKAGE
+@import Branch;
+@import Segment;
+#else
 #import <Branch/Branch.h>
 #import <Branch/BNCPreferenceHelper.h>
 #import <Analytics/SEGAnalytics.h>
 #import <Analytics/SEGAnalyticsUtils.h>
+#endif
 
 
 @implementation BNCBranchIntegration
